@@ -31,7 +31,16 @@ footer {
 	height: 1000px;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr 1fr;
-	grid-gap: 5px;
+	grid-gap: 10px;
 	justify-items: center;
 	align-items: center;
+}
+
+.temp{
+	position: relative;
+	width: 180px;
+	height: 263px;
+	background-image: url(images/card-back.png);
+	background-size: contain;
+	background-repeat: no-repeat;
 }

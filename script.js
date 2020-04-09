@@ -98,7 +98,19 @@ function flipCard(event) {
 	let userInput = parseInt(event.target.dataset.number);
 	console.log(userInput);
 	if (event.target.classList.contains('box')) {
+		let currentCard = event.target.getAttribute('src');
+		console.log(currentCard);
+		if (currentCard === 'images/card-back.png') {
+			event.target.setAttribute('src', deck[userInput].image);
+		} else {
+			event.target.setAttribute('src', 'images/card-back.png');
+		}
 		console.log(event.target.dataset);
-		event.target.setAttribute('src', deck[userInput].image);
+		//console.log(event.target.getAttribute('src'))
+		//if card is back flip, if card is front flip
+		event.target.classList.toggle('temp');
+		console.log(event.target.attribute);
 	}
 }
+
+setTimeout(letsPlay, 4000);
