@@ -47,6 +47,7 @@ function gameStart() {
 	for (let i = 0; i < deck.length; i++) {
 		let cardFront = document.createElement('img');
 		cardFront.setAttribute('class', 'box');
+		cardFront.setAttribute('data-number', i);
 		cardFront.setAttribute('src', deck[i].image);
 		gameBoard.appendChild(cardFront);
 	}
@@ -85,6 +86,8 @@ function clearBoard() {
 	}
 }
 
+let cardInPlay = [];
+let matchedCard = [];
 //reload page to restart game
 function restartGame() {
 	window.location.reload();
@@ -94,20 +97,46 @@ function restartGame() {
 
 //event handler to target individual card when card is clicked
 gameBoard.addEventListener('click', flipCard);
+
 function flipCard(event) {
 	let userInput = parseInt(event.target.dataset.number);
 	console.log(userInput);
 	if (event.target.classList.contains('box')) {
-		let currentCard = event.target.getAttribute('src');
-		console.log(currentCard);
+		let currentCardImage = event.target.getAttribute('src');
+		let currentCardName = deck[userInput].name;
+		console.log(event.target);
+		cardInPlay.push(currentCardName);
+		console.log(cardInPlay);
+
 		//if card is back then flip, if card is front then flip
-		if (currentCard === 'images/card-back.png') {
+		if (currentCardImage === 'images/card-back.png') {
 			event.target.setAttribute('src', deck[userInput].image);
 		} else {
 			event.target.setAttribute('src', 'images/card-back.png');
 		}
-		event.target.classList.toggle('temp');
 	}
+	checkIfMatch();
 }
 
-setTimeout(letsPlay, 4000);
+//setTimeout(letsPlay, 4000);
+
+//function to check if the pair is match
+function checkIfMatch(event) {
+	//flipCard(event);
+	if (cardInPlay.length === 2) {
+		if (cardInPlay[0] === cardInPlay[1]) {
+			//if pair is matched, push to matched card array, reset cardsInplay array
+			matchedCard.push(cardInPlay[0], cardInPlay[1]);
+			cardInPlay = [];
+			console.log(matchedCard, cardInPlay);
+		} else if (cardInPlay[0] !== cardInPlay[1]) {
+			// if pair is not match, remove the last click item
+			console.log(matchedCard);
+			cardInPlay.pop();
+			console.log(matchedCard);
+		}
+	} else if (cardInPlay.length > 2) {
+		if (cardInPlay[0] !== cardInPlay[1]) cardInPlay.pop(1);
+		console.log(cardInPlay);
+	}
+}
