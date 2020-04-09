@@ -16,7 +16,6 @@
 //gold  goal
 //more cards, shuffle while play
 
-
 //create variable that contains all cards
 let deck = [
 	{ name: 'Advanced Ritual Art', image: 'images/advanced-ritual.png' },
@@ -42,16 +41,64 @@ let deck = [
 ];
 
 //start game with board full of images of cards
+let gameBoard = document.querySelector('.game-board');
+
 function gameStart() {
-	let gameBoard = document.querySelector('.game-board');
-	for (let i = 0; i < 20; i++) {
-		let startCard = document.createElement('img');
-		startCard.setAttribute('class', 'box');
-		startCard.setAttribute('src', deck[i].image);
-		gameBoard.appendChild(startCard);
+	for (let i = 0; i < deck.length; i++) {
+		let cardFront = document.createElement('img');
+		cardFront.setAttribute('class', 'box');
+		cardFront.setAttribute('src', deck[i].image);
+		gameBoard.appendChild(cardFront);
 	}
 }
 gameStart();
 
-//Let's play button that flip down all cards
+//Let's-play button that flip down all cards
+let playBtn = document.querySelector('.play');
 
+playBtn.addEventListener('click', letsPlay);
+
+function letsPlay() {
+	clearBoard();
+	for (let i = 0; i < deck.length; i++) {
+		let backCard = document.createElement('img');
+		backCard.setAttribute('class', 'box');
+		backCard.setAttribute('data-number', i);
+		//console.log(backCard);
+		backCard.setAttribute('src', 'images/card-back.png');
+		gameBoard.appendChild(backCard);
+	}
+}
+
+//create const to target the restart button
+const restartBtn = document.querySelector('.restart');
+
+//add event handler for the reset button
+restartBtn.addEventListener('click', restartGame);
+
+//clear the board game
+function clearBoard() {
+	let existingCards = gameBoard.firstElementChild;
+	while (existingCards) {
+		gameBoard.removeChild(existingCards);
+		existingCards = gameBoard.firstElementChild;
+	}
+}
+
+//reload page to restart game
+function restartGame() {
+	window.location.reload();
+	//clearBoard();
+	//gameStart()
+}
+
+//event handler to target individual card when card is clicked
+gameBoard.addEventListener('click', flipCard);
+function flipCard(event) {
+	let userInput = parseInt(event.target.dataset.number);
+	console.log(userInput);
+	if (event.target.classList.contains('box')) {
+		console.log(event.target.dataset);
+		event.target.setAttribute('src', deck[userInput].image);
+	}
+}
