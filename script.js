@@ -100,16 +100,13 @@ function flipCard(event) {
 	if (event.target.classList.contains('box')) {
 		let currentCard = event.target.getAttribute('src');
 		console.log(currentCard);
+		//if card is back then flip, if card is front then flip
 		if (currentCard === 'images/card-back.png') {
 			event.target.setAttribute('src', deck[userInput].image);
 		} else {
 			event.target.setAttribute('src', 'images/card-back.png');
 		}
-		console.log(event.target.dataset);
-		//console.log(event.target.getAttribute('src'))
-		//if card is back flip, if card is front flip
 		event.target.classList.toggle('temp');
-		console.log(event.target.attribute);
 	}
 }
 
