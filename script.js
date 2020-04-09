@@ -95,12 +95,15 @@ function restartGame() {
 	//gameStart()
 }
 
+let allCards = document.getElementsByTagName('img');
+console.log(allCards);
+console.log();
+//allCards[0].setAttribute('src', 'images/card-back.png')
 //event handler to target individual card when card is clicked
 gameBoard.addEventListener('click', flipCard);
-
+let input = parseInt(allCards[0].dataset.number);
 function flipCard(event) {
 	let userInput = parseInt(event.target.dataset.number);
-	console.log(userInput);
 	if (event.target.classList.contains('box')) {
 		let currentCardImage = event.target.getAttribute('src');
 		let currentCardName = deck[userInput].name;
@@ -108,21 +111,36 @@ function flipCard(event) {
 		cardInPlay.push(currentCardName);
 		console.log(cardInPlay);
 
-		//if card is back then flip, if card is front then flip
+		//if card is back then flip to front
 		if (currentCardImage === 'images/card-back.png') {
 			event.target.setAttribute('src', deck[userInput].image);
+			// if card is already flipped click again will check for matching
 		} else {
 			event.target.setAttribute('src', 'images/card-back.png');
 		}
 	}
-	checkIfMatch();
+	//input = allCards[0].dataset.number
+	checkIfMatch(userInput);
+	checkGame();
+	console.log(input);
+	//return input;
 }
+console.log(allCards[0].src);
+console.log(input);
 
+// function flipBack(input) {
+//     console.log(input)
+//     allCards[2].setAttribute('src', 'images/card-back.png');
+//     //return allCards[input]
+// }
 //setTimeout(letsPlay, 4000);
-
 //function to check if the pair is match
-function checkIfMatch(event) {
-	//flipCard(event);
+//if the second card image
+function checkIfMatch(userInput) {
+	console.log(allCards[userInput].getAttribute('src'));
+	console.log(cardInPlay.length);
+	console.log(deck[userInput].image);
+	console.log(cardInPlay[0], cardInPlay[1]);
 	if (cardInPlay.length === 2) {
 		if (cardInPlay[0] === cardInPlay[1]) {
 			//if pair is matched, push to matched card array, reset cardsInplay array
@@ -131,12 +149,30 @@ function checkIfMatch(event) {
 			console.log(matchedCard, cardInPlay);
 		} else if (cardInPlay[0] !== cardInPlay[1]) {
 			// if pair is not match, remove the last click item
-			console.log(matchedCard);
+			//allCards[userInput].removeAttribute('src')
+			//setTimeout(flipBack, 2000);
+			//console.log(gameBoard[0]);
+			console.log(allCards);
+			console.log(allCards[0]);
 			cardInPlay.pop();
 			console.log(matchedCard);
+			console.log(cardInPlay);
+			console.log(allCards[userInput].src);
+
+			console.log(allCards[userInput].src);
+			//allCards[userInput].removeAttribute('src')
+			setTimeout(function () {
+				allCards[userInput].setAttribute('src', 'images/card-back.png');
+			}, 2000);
 		}
-	} else if (cardInPlay.length > 2) {
-		if (cardInPlay[0] !== cardInPlay[1]) cardInPlay.pop(1);
-		console.log(cardInPlay);
+	}
+}
+
+//add function to check if the game is over
+function checkGame() {
+	if (matchedCard.length === 20) {
+		console.log('game over');
+	} else {
+		return;
 	}
 }
