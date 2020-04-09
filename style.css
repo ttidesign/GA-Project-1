@@ -1,3 +1,30 @@
 body {
 	background: black;
+	color:lightgray;
+	text-align: center;
+}
+main{
+	margin: 0 auto;
+}
+.wrapper{
+	
+}
+.game-board {
+	margin: 0 auto;
+	display: grid;
+	width: 1000px;
+	height: 1000px;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
+	grid-gap: 5px;
+	justify-items: center;
+	align-items: center;
+}
+img{
+	max-width: 180px;
+	height: auto;
+	margin-top: 15px;
+}
+footer{
+	height: 300px;
 }
