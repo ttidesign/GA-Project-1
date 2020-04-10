@@ -1,7 +1,8 @@
 body {
-	background: black;
-	color: lightgray;
+	background: #324148;
+	color: #dbe9ee;
 	text-align: center;
+	font-family: 'Montserrat', serif;
 }
 main {
 	margin: 0 auto;
@@ -20,8 +21,14 @@ button:hover {
 	color: #a6a16d;
 }
 img {
-	max-width: 180px;
+	width: 180px;
 	height: auto;
+	position: relative;
+}
+#big-image {
+	width: 400px;
+	grid-row-start: 1 / span 2;
+	grid-column-start: 1 span 2;
 }
 footer {
 	height: 300px;
@@ -40,14 +47,15 @@ footer {
 	grid-gap: 10px;
 	justify-items: center;
 	align-items: center;
-	border: 2px solid #e3dcc2;
 }
 .box {
 	opacity: 0.8;
+	border: 2px solid rgb(184, 244, 245);
 }
 .box:hover {
 	opacity: 1;
 	transform: scale(1.05);
+	border: 2px solid rgb(184, 244, 245);
 }
 
 .button {
@@ -58,17 +66,24 @@ footer {
 	grid-column-start: 1/1;
 	z-index: 2;
 }
-
-.game-over {
-	margin: 0 auto;
-	width: 700px;
-	height: 400px;
-	background-color: lightgray;
-	position: absolute;
-	left: 150px;
-	top: 500px;
-	z-index: 10;
-}
 p {
-	color: red;
+	margin: 15px auto;
+	width: 600px;
+	color: #dbe9ee;
+}
+span {
+}
+
+#modal {
+	background-color: #324148;
+	position: fixed;
+	top: 10%;
+	left: 10%;
+	height: 80%;
+	width: 80%;
+	z-index: 1;
+	overflow: auto;
+	border: 2px solid #dbe9ee;
+	border-radius: 5px;
+	display: none;
 }

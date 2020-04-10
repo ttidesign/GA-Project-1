@@ -17,26 +17,26 @@
 
 //create variable that contains all cards
 let deck = [
-	{ name: 'Advanced Ritual Art', image: 'images/advanced-ritual.png' },
-	{ name: 'Black Luster Soldier', image: 'images/black-luster.png' },
-	{ name: 'Blue Eyes Alternative White Dragon', image: 'images/blue-eyes.png' },
-	{ name: 'Dark Magician', image: 'images/dark-magician.png' },
-	{ name: 'Gaia the Fierce Knight', image: 'images/gaia.png' },
-	{ name: 'Magician of Black Chaos', image: 'images/magician-chaos.png' },
-	{ name: 'Mirror Force', image: 'images/mirror-force.png' },
-	{ name: 'Mirror Wall', image: 'images/mirror-wall.png' },
-	{ name: 'Red Eyes Black Dragon', image: 'images/red-eyes.png' },
-	{ name: 'Sword of Revealing Light', image: 'images/sword.png' },
-	{ name: 'Advanced Ritual Art', image: 'images/advanced-ritual.png' },
-	{ name: 'Black Luster Soldier', image: 'images/black-luster.png' },
-	{ name: 'Blue Eyes Alternative White Dragon', image: 'images/blue-eyes.png' },
-	{ name: 'Dark Magician', image: 'images/dark-magician.png' },
-	{ name: 'Gaia the Fierce Knight', image: 'images/gaia.png' },
-	{ name: 'Magician of Black Chaos', image: 'images/magician-chaos.png' },
-	{ name: 'Mirror Force', image: 'images/mirror-force.png' },
-	{ name: 'Mirror Wall', image: 'images/mirror-wall.png' },
-	{ name: 'Red Eyes Black Dragon', image: 'images/red-eyes.png' },
-	{ name: 'Sword of Revealing Light', image: 'images/sword.png' },
+	{ name: 'Ban Gioc Waterfall', image: 'images/ban-gioc.png' },
+	{ name: 'Da Lat', image: 'images/da-lat.png' },
+	{ name: 'Da Nang', image: 'images/da-nang.png' },
+	{ name: 'Ha Long Bay', image: 'images/ha-long-bay.png' },
+	{ name: 'Hoi An', image: 'images/hoi-an.png' },
+	{ name: 'Hue', image: 'images/hue.png' },
+	{ name: 'Nha Trang', image: 'images/nha-trang.png' },
+	{ name: 'Phu Quoc', image: 'images/phu-quoc.png' },
+	{ name: 'Saigon', image: 'images/saigon.png' },
+	{ name: 'Sapa', image: 'images/sapa.png' },
+	{ name: 'Ban Gioc Waterfall', image: 'images/ban-gioc.png' },
+	{ name: 'Da Lat', image: 'images/da-lat.png' },
+	{ name: 'Da Nang', image: 'images/da-nang.png' },
+	{ name: 'Ha Long Bay', image: 'images/ha-long-bay.png' },
+	{ name: 'Hoi An', image: 'images/hoi-an.png' },
+	{ name: 'Hue', image: 'images/hue.png' },
+	{ name: 'Nha Trang', image: 'images/nha-trang.png' },
+	{ name: 'Phu Quoc', image: 'images/phu-quoc.png' },
+	{ name: 'Saigon', image: 'images/saigon.png' },
+	{ name: 'Sapa', image: 'images/sapa.png' },
 ];
 
 //start game with board full of images of cards
@@ -153,11 +153,12 @@ function checkIfMatch(userInput) {
 
 //add function to check if the game is over
 function checkGame() {
-	let winningMessage = document.querySelector('.win');
+	let winningMessage = document.getElementById('modal');
 	if (matchedCard.length === 20) {
-		winningMessage.classList.toggle('game-over');
+		winningMessage.style.display = 'block';
 		console.log('game over');
 	} else {
 		return;
 	}
 }
+// add variable to target
