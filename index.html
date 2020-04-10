@@ -3,11 +3,54 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+			rel="stylesheet"
+		/>
 		<title>Flash Card Game</title>
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-        <header class='header'></header>
+		<header class="header">
+			<div><h1 class="title">Virtual Tour Flash-Cards</h1></div>
+			<h2>Game Rule</h2>
+			<p>
+				Welcome to Virtual Tour Flash-cards game. In this game you will be
+				tasked with memorize cards and their places. If you flip a matching pair
+				you will score 10 points! Beside getting points, you will also get to
+				learn more about the place you are about to visit.
+			</p>
+			<div>
+				<h3 class="score">Score: 0000</h3>
+			</div>
+		</header>
+		<button class="play">Let's Play</button>
+		<button class="restart">Restart Game</button>
+		<section class="info"><p>You flipped</p></section>
+		<section><input type="text" value="" /></section>
+		<input type="button" data="Search" value="SEARCH"">
+		<main>
+			<div class="wrapper">
+				<div id="modal">
+					<h1>Congratulation! You Win</h1>
+					<p>
+						You have successfully flipped all the cards!
+					</p>
+					<div id="modal-footer">
+						<button class="modal-buttons" id="close" href="#">Close</button>
+					</div>
+				</div>
+				<div>
+					<img id="big-image" src="images/card-back.png" alt="" />
+				</div>
+				<div class="game-board"></div>
+			</div>
+			<div class="favorite">
+				<div class="favorite-board"></div>
+				<h2>My Favorite Places</h2>
+			</div>
+		</main>
+		<footer></footer>
 		<script src="script.js"></script>
 	</body>
 </html>
