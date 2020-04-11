@@ -17,26 +17,126 @@
 
 //create variable that contains all cards
 let deck = [
-	{ name: 'Ban Gioc Waterfall', image: 'images/ban-gioc.png' },
-	{ name: 'Da Lat', image: 'images/da-lat.png' },
-	{ name: 'Da Nang', image: 'images/da-nang.png' },
-	{ name: 'Ha Long Bay', image: 'images/ha-long-bay.png' },
-	{ name: 'Hoi An', image: 'images/hoi-an.png' },
-	{ name: 'Hue', image: 'images/hue.png' },
-	{ name: 'Nha Trang', image: 'images/nha-trang.png' },
-	{ name: 'Phu Quoc', image: 'images/phu-quoc.png' },
-	{ name: 'Saigon', image: 'images/saigon.png' },
-	{ name: 'Sapa', image: 'images/sapa.png' },
-	{ name: 'Ban Gioc Waterfall', image: 'images/ban-gioc.png' },
-	{ name: 'Da Lat', image: 'images/da-lat.png' },
-	{ name: 'Da Nang', image: 'images/da-nang.png' },
-	{ name: 'Ha Long Bay', image: 'images/ha-long-bay.png' },
-	{ name: 'Hoi An', image: 'images/hoi-an.png' },
-	{ name: 'Hue', image: 'images/hue.png' },
-	{ name: 'Nha Trang', image: 'images/nha-trang.png' },
-	{ name: 'Phu Quoc', image: 'images/phu-quoc.png' },
-	{ name: 'Saigon', image: 'images/saigon.png' },
-	{ name: 'Sapa', image: 'images/sapa.png' },
+	{
+		name: 'Ban Gioc Waterfall',
+		image: 'images/ban-gioc.png',
+		about:
+			'Ban Gioc waterfall is a collective name for two waterfalls that straddle the international border between China and Vietnam',
+	},
+	{
+		name: 'Da Lat',
+		image: 'images/da-lat.png',
+		about:
+			'Located in the south of Vietnam is charming Da Lat which is known as a top destination for domestic honeymooners',
+	},
+	{
+		name: 'Da Nang',
+		image: 'images/da-nang.png',
+		about:
+			'The best attractions in Da Nang are a good mix of centuries-old pagodas, French colonial buildings, as well as tranquil beaches with clear blue waters and verdant park',
+	},
+	{
+		name: 'Ha Long Bay',
+		image: 'images/ha-long-bay.png',
+		about:
+			'Ha Long Bay is known for its emerald waters and thousands of towering lime stone topped by rainforests',
+	},
+	{
+		name: 'Hoi An',
+		image: 'images/hoi-an.png',
+		about:
+			"Hoi An is a city on Vietnam's central coast known for its well-preserved Ancient Town, cut through with canals",
+	},
+	{
+		name: 'Hue',
+		image: 'images/hue.png',
+		about:
+			'Hue is one of the most charming towns in Vietnam and is located on the banks of the beautifully name Perfume River',
+	},
+	{
+		name: 'Nha Trang',
+		image: 'images/nha-trang.png',
+		about:
+			'Nha Trang is a coastal resort city in southern Vietnam known for its beaches, diving sites and offshore islands',
+	},
+	{
+		name: 'Phu Quoc',
+		image: 'images/phu-quoc.png',
+		about:
+			"Phu Quoc is an island off the coast of Cambodia in the Guff of Thailand. It's known for white-sand beaches and resorts, most of which are along the palm-lined southwest coast",
+	},
+	{
+		name: 'Saigon',
+		image: 'images/saigon.png',
+		about:
+			'Saigon is a city in south Vietnam famous for its French colonial landmarks including Notre-Dame Cathedral, made of materials imported from France.',
+	},
+	{
+		name: 'Sapa',
+		image: 'images/sapa.png',
+		about:
+			'Sapa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+	},
+	{
+		name: 'Ban Gioc Waterfall',
+		image: 'images/ban-gioc.png',
+		about:
+			'Ban Gioc waterfall is a collective name for two waterfalls that straddle the international border between China and Vietnam',
+	},
+	{
+		name: 'Da Lat',
+		image: 'images/da-lat.png',
+		about:
+			'Located in the south of Vietnam is charming Da Lat which is known as a top destination for domestic honeymooners',
+	},
+	{
+		name: 'Da Nang',
+		image: 'images/da-nang.png',
+		about:
+			'The best attractions in Da Nang are a good mix of centuries-old pagodas, French colonial buildings, as well as tranquil beaches with clear blue waters and verdant park',
+	},
+	{
+		name: 'Ha Long Bay',
+		image: 'images/ha-long-bay.png',
+		about:
+			'Ha Long Bay is known for its emerald waters and thousands of towering lime stone topped by rainforests',
+	},
+	{
+		name: 'Hoi An',
+		image: 'images/hoi-an.png',
+		about:
+			"Hoi An is a city on Vietnam's central coast known for its well-preserved Ancient Town, cut through with canals",
+	},
+	{
+		name: 'Hue',
+		image: 'images/hue.png',
+		about:
+			'Hue is one of the most charming towns in Vietnam and is located on the banks of the beautifully name Perfume River',
+	},
+	{
+		name: 'Nha Trang',
+		image: 'images/nha-trang.png',
+		about:
+			'Nha Trang is a coastal resort city in southern Vietnam known for its beaches, diving sites and offshore islands',
+	},
+	{
+		name: 'Phu Quoc',
+		image: 'images/phu-quoc.png',
+		about:
+			"Phu Quoc is an island off the coast of Cambodia in the Guff of Thailand. It's known for white-sand beaches and resorts, most of which are along the palm-lined southwest coast",
+	},
+	{
+		name: 'Saigon',
+		image: 'images/saigon.png',
+		about:
+			'Saigon is a city in south Vietnam famous for its French colonial landmarks including Notre-Dame Cathedral, made of materials imported from France.',
+	},
+	{
+		name: 'Sapa',
+		image: 'images/sapa.png',
+		about:
+			'Sapa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+	},
 ];
 
 //start game with board full of images of cards
@@ -68,6 +168,7 @@ function letsPlay() {
 		backCard.setAttribute('src', 'images/card-back.png');
 		gameBoard.appendChild(backCard);
 	}
+	shuffleDec();
 }
 //create variable to target the restart button
 const restartBtn = document.querySelector('.restart');
@@ -94,20 +195,29 @@ function restartGame() {
 }
 //create variable to target all images in the game board
 let cardsBoard = document.getElementsByTagName('img');
-
+//create a variable to target the big image
+let bigImage = document.getElementById('big-image');
+//create variable to target the h2 inside paragraph
+let nameOfPlace = document.querySelector('.about-place');
+//create a variable to target the About paragraph
+let placeAbout = document.querySelector('.about');
 //event handler to target individual card when card is clicked
 gameBoard.addEventListener('click', flipCard);
 
 function flipCard(event) {
 	let userInput = parseInt(event.target.dataset.number);
 	if (event.target.classList.contains('box')) {
+		nameOfPlace.innerText = deck[userInput].name;
+		placeAbout.innerText = deck[userInput].about;
+		nameOfPlace.appendChild(placeAbout);
+		bigImage.setAttribute('src', deck[userInput].image);
 		let currentCardImage = event.target.getAttribute('src');
 		let currentCardName = deck[userInput].name;
 		let addButton = document.createElement('button');
 		addButton.setAttribute('class', 'add-button');
 		addButton.innerText = 'Add';
 		addButton.style.background = 'red';
-		addButton.style.position = 'relative';
+		addButton.style.position = 'absolute';
 		addButton.style.zIndex = '3';
 		console.log(cardsBoard[0]);
 		cardsBoard[1].append(addButton);
@@ -145,7 +255,10 @@ function checkIfMatch(userInput) {
 			cardInPlay.pop();
 			// if pair is not matched flip the last clicked card back down after 2 seconds
 			setTimeout(function () {
-				cardsBoard[userInput].setAttribute('src', 'images/card-back.png');
+				cardsBoard[userInput].nextSibling.setAttribute(
+					'src',
+					'images/card-back.png'
+				);
 			}, 2000);
 		}
 	}
@@ -156,9 +269,17 @@ function checkGame() {
 	let winningMessage = document.getElementById('modal');
 	if (matchedCard.length === 20) {
 		winningMessage.style.display = 'block';
-		console.log('game over');
 	} else {
 		return;
 	}
 }
-// add variable to target
+// add function to shuffle cards when user click play button
+function shuffleDec() {
+	for (let i = deck.length - 1; i >= 0; i--) {
+		let j = Math.floor(Math.random() * (i + 1));
+		let randomizedCards = deck[i];
+		deck[i] = deck[j];
+		deck[j] = randomizedCards;
+	}
+	return deck;
+}

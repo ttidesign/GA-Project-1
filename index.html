@@ -20,16 +20,19 @@
 				you will score 10 points! Beside getting points, you will also get to
 				learn more about the place you are about to visit.
 			</p>
-			<div>
-				<h3 class="score">Score: 0000</h3>
-			</div>
 		</header>
+		<div>
+			<h3 class="score">Score: 0000</h3>
+		</div>
 		<button class="play">Let's Play</button>
 		<button class="restart">Restart Game</button>
-		<section class="info"><p>You flipped</p></section>
-		<section><input type="text" value="" /></section>
-		<input type="button" data="Search" value="SEARCH"">
 		<main>
+			<div class="container">
+				<img id="big-image" src="images/card-back.png" alt="" />
+				<h2 class="about-place">
+					<p class="about"></p>
+				</h2>
+			</div>
 			<div class="wrapper">
 				<div id="modal">
 					<h1>Congratulation! You Win</h1>
@@ -40,10 +43,12 @@
 						<button class="modal-buttons" id="close" href="#">Close</button>
 					</div>
 				</div>
-				<div>
-					<img id="big-image" src="images/card-back.png" alt="" />
-				</div>
+
 				<div class="game-board"></div>
+			</div>
+			<div>
+				<input class="search-box type="text" value="" />
+				<button class="search-button">Search</button>
 			</div>
 			<div class="favorite">
 				<div class="favorite-board"></div>
