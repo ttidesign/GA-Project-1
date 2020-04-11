@@ -72,10 +72,10 @@ let deck = [
 			'Saigon is a city in south Vietnam famous for its French colonial landmarks including Notre-Dame Cathedral, made of materials imported from France.',
 	},
 	{
-		name: 'Sapa',
+		name: 'Sa-Pa',
 		image: 'images/sapa.png',
 		about:
-			'Sapa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+			'Sa-Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
 	},
 	{
 		name: 'Ban Gioc Waterfall',
@@ -132,10 +132,10 @@ let deck = [
 			'Saigon is a city in south Vietnam famous for its French colonial landmarks including Notre-Dame Cathedral, made of materials imported from France.',
 	},
 	{
-		name: 'Sapa',
+		name: 'Sa-Pa',
 		image: 'images/sapa.png',
 		about:
-			'Sapa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+			'Sa-Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
 	},
 ];
 
@@ -213,14 +213,6 @@ function flipCard(event) {
 		bigImage.setAttribute('src', deck[userInput].image);
 		let currentCardImage = event.target.getAttribute('src');
 		let currentCardName = deck[userInput].name;
-		let addButton = document.createElement('button');
-		addButton.setAttribute('class', 'add-button');
-		addButton.innerText = 'Add';
-		addButton.style.background = 'red';
-		addButton.style.position = 'absolute';
-		addButton.style.zIndex = '3';
-		console.log(cardsBoard[0]);
-		cardsBoard[1].append(addButton);
 		//push card's image to card-in-play array to check matching pair
 		cardInPlay.push(currentCardName);
 		//if card is back then flip to front
@@ -259,7 +251,7 @@ function checkIfMatch(userInput) {
 					'src',
 					'images/card-back.png'
 				);
-			}, 2000);
+			}, 700);
 		}
 	}
 }
