@@ -22,24 +22,27 @@
 				<li><a href="spain.html">KOREA</a></li>
 			</ul>
 		</nav>
-		<h2>GAME RULE</h2>
-		<p class="game-rule">
-			Welcome to Virtual Tour Flashcards game. In this game you will be tasked
-			with memorize cards and their places. If you flip a matching pair you will
-			score 10 points! Beside getting points, you will also get to learn more
-			about the place you are about to visit.
-		</p>
+
 		<button class="play">Let's Play</button>
 		<button class="restart">Restart Game</button>
-		<div class="score-board">
-			<h3 class="score">SCORE: 0000</h3>
-		</div>
+		<button class="reset">Reset Score</button>
+
 		<main>
 			<div class="container">
+				<h3 class="score-board">SCORE: 0000</h3>
+
 				<img id="big-image" src="images/card-back.png" alt="" />
 				<h2 class="about-place">
-					<p class="about"></p>
+					GAME RULE
+					<p class="about">
+						Welcome to Virtual Tour Flashcards game. In this game you will be
+						tasked with memorize cards and their places. If you flip a matching
+						pair you will score 10 points! Beside getting points, you will also
+						get to learn more about the place you are about to visit.
+					</p>
 				</h2>
+				<input class="search-box type=" text" placeholder="Enter place (case sensitive)" value="" />
+				<button class="search-button">Search</button>
 			</div>
 			<div class="wrapper">
 				<div id="modal">
@@ -54,13 +57,10 @@
 
 				<div class="game-board"></div>
 			</div>
-			<div>
-				<input class="search-box type="text" value="" />
-				<button class="search-button">Search</button>
-			</div>
-			<div class="favorite">
-				<div class="favorite-board"></div>
-				<h2>My Favorite Places</h2>
+			<div></div>
+			<div class="search">
+				<h2>Search Result</h2>
+				<img class="to-go-place" src="" />
 			</div>
 		</main>
 		<footer></footer>

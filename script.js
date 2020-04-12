@@ -18,7 +18,7 @@
 //create variable that contains all cards
 let deck = [
 	{
-		name: 'Ban Gioc Waterfall',
+		name: 'Ban Gioc',
 		image: 'images/ban-gioc.png',
 		about:
 			'Ban Gioc waterfall is a collective name for two waterfalls that straddle the international border between China and Vietnam',
@@ -78,7 +78,7 @@ let deck = [
 			'Sa-Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
 	},
 	{
-		name: 'Ban Gioc Waterfall',
+		name: 'Ban Gioc',
 		image: 'images/ban-gioc.png',
 		about:
 			'Ban Gioc waterfall is a collective name for two waterfalls that straddle the international border between China and Vietnam',
@@ -140,8 +140,8 @@ let deck = [
 ];
 
 //start game with board full of images of cards
-let gameBoard = document.querySelector('.game-board');
-let myFavoriteCards = document.querySelector('.favorite-board');
+const gameBoard = document.querySelector('.game-board');
+
 function gameStart() {
 	for (let i = 0; i < deck.length; i++) {
 		let cardFront = document.createElement('img');
@@ -154,7 +154,7 @@ function gameStart() {
 gameStart();
 
 //Let's-play button that flip down all cards
-let playBtn = document.querySelector('.play');
+const playBtn = document.querySelector('.play');
 
 playBtn.addEventListener('click', letsPlay);
 
@@ -194,13 +194,13 @@ function restartGame() {
 	//gameStart()
 }
 //create variable to target all images in the game board
-let cardsBoard = document.getElementsByTagName('img');
+const cardsBoard = document.getElementsByTagName('img');
 //create a variable to target the big image
-let bigImage = document.getElementById('big-image');
+const bigImage = document.getElementById('big-image');
 //create variable to target the h2 inside paragraph
-let nameOfPlace = document.querySelector('.about-place');
+const nameOfPlace = document.querySelector('.about-place');
 //create a variable to target the About paragraph
-let placeAbout = document.querySelector('.about');
+const placeAbout = document.querySelector('.about');
 //event handler to target individual card when card is clicked
 gameBoard.addEventListener('click', flipCard);
 
@@ -232,7 +232,7 @@ function flipCard(event) {
 
 //function to check if the pair is matched
 //create variable to target score board and a variable to hold score
-let scoreBoard = document.querySelector('.score');
+const scoreBoard = document.querySelector('.score');
 let score = 0;
 function checkIfMatch(userInput) {
 	if (cardInPlay.length === 2) {
@@ -247,10 +247,7 @@ function checkIfMatch(userInput) {
 			cardInPlay.pop();
 			// if pair is not matched flip the last clicked card back down after 2 seconds
 			setTimeout(function () {
-				cardsBoard[userInput].nextSibling.setAttribute(
-					'src',
-					'images/card-back.png'
-				);
+				cardsBoard[userInput + 1].setAttribute('src', 'images/card-back.png');
 			}, 700);
 		}
 	}
@@ -274,4 +271,21 @@ function shuffleDec() {
 		deck[j] = randomizedCards;
 	}
 	return deck;
+}
+
+// create a variable to target the image section in togo place
+const toGoPlace = document.querySelectorAll('.to-go-place');
+// create a variable to target the favorite add button
+const searchBtn = document.querySelector('.search-button');
+// create variable to target the value input
+let addInput = document.querySelector('input');
+//add event handler for adding favorite button
+searchBtn.addEventListener('click', searchResult);
+//add function to handle event
+function searchResult() {
+	let inputValue = addInput.value;
+	for (let i = 0; i < deck.length; i++)
+		if (inputValue == deck[i].name) {
+			toGoPlace[0].setAttribute('src', deck[i].image);
+		}
 }
