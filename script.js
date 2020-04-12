@@ -3,20 +3,20 @@
 //mvp
 //game rules
 //show image of cards
-//user press play then cards flip down, 5 second timer/delay
-//users click- card flip up, check for match, if there's a match add to score board max point each game =100
+//users press play then cards flip down, 5 second timer/delay
+//users click then card flip up, check for match, if there's a match add to score board, max point each game =100
 //if all cards flipped game end
-//add restart game button add restart score board
+//add restart game button add reset score board
 
 //silver goal
-//card flip back if pair is not match
-//if pair is match, keep them up, add message if pair is not match deduct 5 point,
+//card flip back down if pair is not match
+//if pair is match, keep them up, if pair is not match deduct 5 point,
 
 //gold  goal
-//more cards, shuffle while play, save favorite card
+//add more cards, shuffle while play, search feature view bigger image
 
 //create variable that contains all cards
-let deck = [
+const deck = [
 	{
 		name: 'Ban Gioc',
 		image: 'images/ban-gioc.png',
@@ -72,10 +72,10 @@ let deck = [
 			'Saigon is a city in south Vietnam famous for its French colonial landmarks including Notre-Dame Cathedral, made of materials imported from France.',
 	},
 	{
-		name: 'Sa-Pa',
+		name: 'Sa Pa',
 		image: 'images/sapa.png',
 		about:
-			'Sa-Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+			'Sa Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
 	},
 	{
 		name: 'Ban Gioc',
@@ -132,10 +132,36 @@ let deck = [
 			'Saigon is a city in south Vietnam famous for its French colonial landmarks including Notre-Dame Cathedral, made of materials imported from France.',
 	},
 	{
-		name: 'Sa-Pa',
+		name: 'Sa Pa',
 		image: 'images/sapa.png',
 		about:
-			'Sa-Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+			'Sa Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+	},
+];
+const extraDeck = [
+	{
+		name: 'Nam Du',
+		image: 'images/nam-du.png',
+		about:
+			'The immense blue sea and sky, imposing mountains erupting amidst the ocean, endless evergreen primeval forests, long stunning beaches and spendid rock cliffs of Nam Du Archipelago have seen it compared the "New Wonder of The World',
+	},
+	{
+		name: 'Ling-Ung',
+		image: 'images/ling-ung.png',
+		about:
+			'Linh Ung pagoda is considered as a work stamped development footprint of Buddhism in Vietnam in the 21st century and a meeting place of heaven and earth',
+	},
+	{
+		name: 'Ha Noi Old Quarter',
+		image: 'images/ha-noi.png',
+		about:
+			'The Old Quarter is the name commonly given to the historical civic urban core of Hanoi, this quarter used to be the residential, manufacturing and commercial center where each street was specialized in one specific type of manufacturing or commerce',
+	},
+	{
+		name: 'Hai Van',
+		image: 'images/hai-van.png',
+		about:
+			"Hai Van Pass is a 20-kilometer strip of road that joins the the city of Da Nang and Lang Co in Hue Province. At 500 meter above sea level, it's the highest pass in the whole of Vietnam",
 	},
 ];
 
@@ -170,11 +196,6 @@ function letsPlay() {
 	}
 	shuffleDec();
 }
-//create variable to target the restart button
-const restartBtn = document.querySelector('.restart');
-
-//add event handler for the restart button
-restartBtn.addEventListener('click', restartGame);
 
 //clear the board game
 function clearBoard() {
@@ -185,14 +206,6 @@ function clearBoard() {
 	}
 }
 
-let cardInPlay = [];
-let matchedCard = [];
-//reload page to restart game
-function restartGame() {
-	window.location.reload();
-	//clearBoard();
-	//gameStart()
-}
 //create variable to target all images in the game board
 const cardsBoard = document.getElementsByTagName('img');
 //create a variable to target the big image
@@ -230,6 +243,10 @@ function flipCard(event) {
 
 //setTimeout(letsPlay, 4000);
 
+//create two arrays for holding temp values for checking match
+let cardInPlay = [];
+let matchedCard = [];
+
 //function to check if the pair is matched
 //create variable to target score board and a variable to hold score
 const scoreBoard = document.querySelector('.score');
@@ -241,21 +258,40 @@ function checkIfMatch(userInput) {
 			matchedCard.push(cardInPlay[0], cardInPlay[1]);
 			cardInPlay = [];
 			score += 10;
-			scoreBoard.innerText = 'Score: 00' + score;
+			scoreBoard.innerText = 'SCORE: 00' + score;
 		} else if (cardInPlay[0] !== cardInPlay[1]) {
 			// if pair is not match, remove the last clicked item from card-in-play array
 			cardInPlay.pop();
 			// if pair is not matched flip the last clicked card back down after 2 seconds
 			setTimeout(function () {
 				cardsBoard[userInput + 1].setAttribute('src', 'images/card-back.png');
-			}, 700);
+			}, 600);
 		}
 	}
 }
 
+//reset score
+let resetBtn = document.querySelector('.reset');
+resetBtn.addEventListener('click', resetScore);
+
+function resetScore() {
+	scoreBoard.innerText = 'SCORE: 0000';
+}
+
+//create variable to target the restart button
+const restartBtn = document.querySelector('.restart');
+
+//add event handler for the restart button
+restartBtn.addEventListener('click', restartGame);
+
+//reload page to restart game
+function restartGame() {
+	window.location.reload();
+}
+
 //add function to check if the game is over
+let winningMessage = document.getElementById('modal');
 function checkGame() {
-	let winningMessage = document.getElementById('modal');
 	if (matchedCard.length === 20) {
 		winningMessage.style.display = 'block';
 	} else {
@@ -273,9 +309,7 @@ function shuffleDec() {
 	return deck;
 }
 
-// create a variable to target the image section in togo place
-const toGoPlace = document.querySelectorAll('.to-go-place');
-// create a variable to target the favorite add button
+// create a variable to target the search button
 const searchBtn = document.querySelector('.search-button');
 // create variable to target the value input
 let addInput = document.querySelector('input');
@@ -286,6 +320,33 @@ function searchResult() {
 	let inputValue = addInput.value;
 	for (let i = 0; i < deck.length; i++)
 		if (inputValue == deck[i].name) {
-			toGoPlace[0].setAttribute('src', deck[i].image);
+			nameOfPlace.innerText = deck[i].name;
+			placeAbout.innerText = deck[i].about;
+			nameOfPlace.appendChild(placeAbout);
+			bigImage.setAttribute('src', deck[i].image);
 		}
+}
+
+// let users add more cards
+const addBtn = document.querySelector('.add');
+addBtn.addEventListener('click', addMoreCards);
+let addCard = 0;
+function addMoreCards() {
+	let newCard = document.createElement('img');
+	newCard.setAttribute('src', extraDeck[addCard].image);
+	newCard.classList.add('box');
+	gameBoard.appendChild(newCard);
+	nameOfPlace.innerText = extraDeck[addCard].name;
+	placeAbout.innerText = extraDeck[addCard].about;
+	nameOfPlace.appendChild(placeAbout);
+	bigImage.setAttribute('src', extraDeck[addCard].image);
+	addCard++;
+	return addCard;
+}
+
+//creat a variable to target the modal close button
+let closeBtn = document.getElementById('close');
+closeBtn.addEventListener('click', closeModal);
+function closeModal() {
+	winningMessage.style.display = 'none';
 }
