@@ -12,24 +12,44 @@
 	</head>
 	<body>
 		<header class="header">
-			<div><h1 class="title">Virtual Tour Flash-Cards</h1></div>
-			<h2>Game Rule</h2>
-			<p>
-				Welcome to Virtual Tour Flash-cards game. In this game you will be
-				tasked with memorize cards and their places. If you flip a matching pair
-				you will score 10 points! Beside getting points, you will also get to
-				learn more about the place you are about to visit.
-			</p>
-			<div>
-				<h3 class="score">Score: 0000</h3>
-			</div>
+			<div><h1 class="title">VIRTUAL TOUR FLASHCARDS</h1></div>
 		</header>
+		<nav class="navigation">
+			<ul class="menu">
+				<li><a href="index.html">VIET NAM</a></li>
+				<li><a href="japan.html">JAPAN</a></li>
+				<li><a href="spain.html">SPAIN</a></li>
+				<li><a href="iceland.html">ICELAND</a></li>
+			</ul>
+		</nav>
+		<div class="spacer"></div>
 		<button class="play">Let's Play</button>
 		<button class="restart">Restart Game</button>
-		<section class="info"><p>You flipped</p></section>
-		<section><input type="text" value="" /></section>
-		<input type="button" data="Search" value="SEARCH"">
+		<button class="reset">Reset Score</button>
+
 		<main>
+			<div class="container">
+				<h3 class="score-board score">SCORE: 0000</h3>
+
+				<img id="big-image" src="images/card-back.png" alt="" />
+				<h2 class="about-place">
+					GAME RULE
+					<p class="about">
+						Welcome to Virtual Tour Flashcards game. In this game you will be
+						tasked with memorize cards and their places. If you flip a matching
+						pair you will score 10 points! Beside getting points, you will also
+						get to learn more about the place you are about to visit.
+					</p>
+				</h2>
+				<input type="text" class="search-box"  placeholder="Search (case sensitive)" value="" />
+				<button class="search-button">SEARCH</button>
+			</div>
+			<div id="picture-modal">
+				<!-- <img id="modal-image" src="images/card-back.png" alt=""> -->
+				<div id="modal-footer">
+					<button class="return-button" id="return" href="#">Close</button>
+				</div>
+			</div>
 			<div class="wrapper">
 				<div id="modal">
 					<h1>Congratulation! You Win</h1>
@@ -40,15 +60,10 @@
 						<button class="modal-buttons" id="close" href="#">Close</button>
 					</div>
 				</div>
-				<div>
-					<img id="big-image" src="images/card-back.png" alt="" />
-				</div>
 				<div class="game-board"></div>
 			</div>
-			<div class="favorite">
-				<div class="favorite-board"></div>
-				<h2>My Favorite Places</h2>
-			</div>
+			<div></div>
+			<button class="add">EXPLORE MORE PLACES</button>
 		</main>
 		<footer></footer>
 		<script src="script.js"></script>
