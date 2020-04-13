@@ -350,3 +350,31 @@ closeBtn.addEventListener('click', closeModal);
 function closeModal() {
 	winningMessage.style.display = 'none';
 }
+
+// create a variable to target the modal that show image
+let modalImageView = document.getElementById('picture-modal');
+//add event listen and function to handle modal view
+bigImage.addEventListener('click', imageModal);
+
+let modalImage = document.createElement('img');
+function imageModal(event) {
+	if (bigImage.getAttribute('src') === 'images/card-back.png') {
+		return;
+	} else {
+		modalImageSource = bigImage.getAttribute('src');
+		modalImage.setAttribute('src', modalImageSource);
+		modalImage.style.width = '450px';
+		modalImage.style.height = '675px';
+		modalImageView.appendChild(modalImage);
+		modalImageView.style.display = 'block';
+	}
+}
+
+//create a variable to target the close button
+let returnBtn = document.getElementById('return');
+returnBtn.addEventListener('click', closeModalImage);
+
+function closeModalImage() {
+	modalImageView.style.display = 'none';
+	modalImageView.removeChild(modalImage);
+}
