@@ -1,3 +1,5 @@
+//console.log('hello world)
+
 //mvp
 //game rules
 //show image of cards
@@ -16,124 +18,124 @@
 //create variable that contains all cards
 const deck = [
 	{
-		name: 'Ban Gioc',
-		image: 'images/ban-gioc.png',
+		name: 'Arashiyama',
+		image: './images/Arashiyama.png',
 		about:
-			'Ban Gioc waterfall is a collective name for two waterfalls that straddle the international border between China and Vietnam',
+			'Arashiyama becomes most attractive (and busy) around early April and the second half of November when the cherry blossom and fall color seasons usually peak (Click picture to read more)',
 	},
 	{
-		name: 'Da Lat',
-		image: 'images/da-lat.png',
+		name: 'Daigoji',
+		image: './images/Daigoji.png',
 		about:
-			'Located in the south of Vietnam is charming Da Lat which is known as a top destination for domestic honeymooners',
+			'Daigoji is an important temple of the Shingon sect of Japanese Buddhism and a designated world heritage site. The large temple complex stands southeast of central Kyoto and includes an entire mountainside (Click picture to read more)',
 	},
 	{
-		name: 'Da Nang',
-		image: 'images/da-nang.png',
+		name: 'Gion District',
+		image: './images/Gion-District.png',
 		about:
-			'The best attractions in Da Nang are a good mix of centuries-old pagodas, French colonial buildings, as well as tranquil beaches with clear blue waters and verdant park',
+			'Gion is Kyoto’s geisha district, with hostesses in colorful kimonos often sighted on the wooden Tatsumi Bridge, or amid upscale Japanese restaurants and boutiques on Hanamikoji Street (Click picture to read more)',
 	},
 	{
-		name: 'Ha Long Bay',
-		image: 'images/ha-long-bay.png',
+		name: 'Ginzan Onsen',
+		image: './images/Ginzan-Onsen.png',
 		about:
-			'Ha Long Bay is known for its emerald waters and thousands of towering lime stone topped by rainforests',
+			'Ginzan Onsen (Silver Mountain Hot Spring) is a secluded hot spring town nestled in the mountains of Yamagata Prefecture (Click picture to read more)',
 	},
 	{
-		name: 'Hoi An',
-		image: 'images/hoi-an.png',
+		name: 'Hakone',
+		image: './images/Hakone.png',
 		about:
-			"Hoi An is a city on Vietnam's central coast known for its well-preserved Ancient Town, cut through with canals",
+			'Hakone is part of the Fuji-Hakone-Izu National Park, less than one hundred kilometers from Tokyo. Famous for hot springs, natural beauty and the view across Lake Ashinoko of nearby Mount Fuji (Click picture to read more)',
 	},
 	{
-		name: 'Hue',
-		image: 'images/hue.png',
+		name: 'Hiroshima Castle',
+		image: './images/Hiroshima.png',
 		about:
-			'Hue is one of the most charming towns in Vietnam and is located on the banks of the beautifully name Perfume River',
+			'Hiroshima Castle also called the Carp Castle, is a good example of a castle built on a plain in the center of a city as opposed to hilltop and mountaintop castles (Click picture to read more)',
 	},
 	{
-		name: 'Nha Trang',
-		image: 'images/nha-trang.png',
+		name: 'Hitsujiyama Park ',
+		image: './images/Hitsujiyama-Park.png',
 		about:
-			'Nha Trang is a coastal resort city in southern Vietnam known for its beaches, diving sites and offshore islands',
+			'Hitsujiyama Park is a park in Chichibu, known for its beautiful moss pink fields that typically come into bloom around late April to early May and attract droves of visitors (Click picture to read more)',
 	},
 	{
-		name: 'Phu Quoc',
-		image: 'images/phu-quoc.png',
+		name: 'Kamakura',
+		image: './images/Kamakura.png',
 		about:
-			"Phu Quoc is an island off the coast of Cambodia in the Guff of Thailand. It's known for white-sand beaches and resorts, most of which are along the palm-lined southwest coast",
+			'Kamakura is a small city and a very popular tourist destination. Sometimes called the Kyoto of Eastern Japan, Kamakura offers numerous temples, shrines and other historical monuments (Click picture to read more)',
 	},
 	{
-		name: 'Saigon',
-		image: 'images/saigon.png',
+		name: 'Maruyama Park',
+		image: './images/Maruyama-Park.png',
 		about:
-			'Saigon is a city in south Vietnam famous for its French colonial landmarks including Notre-Dame Cathedral, made of materials imported from France.',
+			'In the first half of April, when the cherry trees are in full bloom, the park becomes Kyoto’s most popular and most crowded spot for cherry blossom viewing parties (Click picture to read more)',
 	},
 	{
-		name: 'Sa Pa',
-		image: 'images/sapa.png',
+		name: 'Nagoya Castle',
+		image: './images/Nagoya-Castle.png',
 		about:
-			'Sa Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+			'Nagoya Castle was built in the beginning of the Edo Period as the seat of one of the three branches of the ruling Tokugawa family, the Owari branch (Click picture to read more)',
 	},
 	{
-		name: 'Ban Gioc',
-		image: 'images/ban-gioc.png',
+		name: 'Arashiyama',
+		image: './images/Arashiyama.png',
 		about:
-			'Ban Gioc waterfall is a collective name for two waterfalls that straddle the international border between China and Vietnam',
+			'Arashiyama becomes most attractive (and busy) around early April and the second half of November when the cherry blossom and fall color seasons usually peak (Click picture to read more)',
 	},
 	{
-		name: 'Da Lat',
-		image: 'images/da-lat.png',
+		name: 'Daigoji',
+		image: './images/Daigoji.png',
 		about:
-			'Located in the south of Vietnam is charming Da Lat which is known as a top destination for domestic honeymooners',
+			'Daigoji is an important temple of the Shingon sect of Japanese Buddhism and a designated world heritage site. The large temple complex stands southeast of central Kyoto and includes an entire mountainside (Click picture to read more)',
 	},
 	{
-		name: 'Da Nang',
-		image: 'images/da-nang.png',
+		name: 'Gion District',
+		image: './images/Gion-District.png',
 		about:
-			'The best attractions in Da Nang are a good mix of centuries-old pagodas, French colonial buildings, as well as tranquil beaches with clear blue waters and verdant park',
+			'Gion is Kyoto’s geisha district, with hostesses in colorful kimonos often sighted on the wooden Tatsumi Bridge, or amid upscale Japanese restaurants and boutiques on Hanamikoji Street (Click picture to read more)',
 	},
 	{
-		name: 'Ha Long Bay',
-		image: 'images/ha-long-bay.png',
+		name: 'Ginzan Onsen',
+		image: './images/Ginzan-Onsen.png',
 		about:
-			'Ha Long Bay is known for its emerald waters and thousands of towering lime stone topped by rainforests',
+			'Ginzan Onsen (Silver Mountain Hot Spring) is a secluded hot spring town nestled in the mountains of Yamagata Prefecture (Click picture to read more)',
 	},
 	{
-		name: 'Hoi An',
-		image: 'images/hoi-an.png',
+		name: 'Hakone',
+		image: './images/Hakone.png',
 		about:
-			"Hoi An is a city on Vietnam's central coast known for its well-preserved Ancient Town, cut through with canals",
+			'Hakone is part of the Fuji-Hakone-Izu National Park, less than one hundred kilometers from Tokyo. Famous for hot springs, natural beauty and the view across Lake Ashinoko of nearby Mount Fuji (Click picture to read more)',
 	},
 	{
-		name: 'Hue',
-		image: 'images/hue.png',
+		name: 'Hiroshima Castle',
+		image: './images/Hiroshima.png',
 		about:
-			'Hue is one of the most charming towns in Vietnam and is located on the banks of the beautifully name Perfume River',
+			'Hiroshima Castle also called the Carp Castle, is a good example of a castle built on a plain in the center of a city as opposed to hilltop and mountaintop castles (Click picture to read more)',
 	},
 	{
-		name: 'Nha Trang',
-		image: 'images/nha-trang.png',
+		name: 'Hitsujiyama Park ',
+		image: './images/Hitsujiyama-Park.png',
 		about:
-			'Nha Trang is a coastal resort city in southern Vietnam known for its beaches, diving sites and offshore islands',
+			'Hitsujiyama Park is a park in Chichibu, known for its beautiful moss pink fields that typically come into bloom around late April to early May and attract droves of visitors (Click picture to read more)',
 	},
 	{
-		name: 'Phu Quoc',
-		image: 'images/phu-quoc.png',
+		name: 'Kamakura',
+		image: './images/Kamakura.png',
 		about:
-			"Phu Quoc is an island off the coast of Cambodia in the Guff of Thailand. It's known for white-sand beaches and resorts, most of which are along the palm-lined southwest coast",
+			'Kamakura is a small city and a very popular tourist destination. Sometimes called the Kyoto of Eastern Japan, Kamakura offers numerous temples, shrines and other historical monuments (Click picture to read more)',
 	},
 	{
-		name: 'Saigon',
-		image: 'images/saigon.png',
+		name: 'Maruyama Park',
+		image: './images/Maruyama-Park.png',
 		about:
-			'Saigon is a city in south Vietnam famous for its French colonial landmarks including Notre-Dame Cathedral, made of materials imported from France.',
+			'In the first half of April, when the cherry trees are in full bloom, the park becomes Kyoto’s most popular and most crowded spot for cherry blossom viewing parties (Click picture to read more)',
 	},
 	{
-		name: 'Sa Pa',
-		image: 'images/sapa.png',
+		name: 'Nagoya Castle',
+		image: './images/Nagoya-Castle.png',
 		about:
-			'Sa Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+			'Nagoya Castle was built in the beginning of the Edo Period as the seat of one of the three branches of the ruling Tokugawa family, the Owari branch (Click picture to read more)',
 	},
 ];
 const extraDeck = [
@@ -236,7 +238,7 @@ function letsPlay() {
 		backCard.setAttribute('class', 'box');
 		backCard.setAttribute('data-number', i);
 		//console.log(backCard);
-		backCard.setAttribute('src', 'images/card-back.png');
+		backCard.setAttribute('src', './images/card-back.png');
 		gameBoard.appendChild(backCard);
 	}
 	shuffleDec();
@@ -263,12 +265,12 @@ function flipCard(event) {
 		//push card's image to card-in-play array to check matching pair
 		cardInPlay.push(currentCardName);
 		//if card is back then flip to front
-		if (currentCardImage === 'images/card-back.png') {
+		if (currentCardImage === './images/card-back.png') {
 			event.target.setAttribute('src', deck[userInput].image);
 			//myFavoriteCards.appendChild(addFavorite)
 			// if card is already flipped click again will flip it back again
 		} else {
-			event.target.setAttribute('src', 'images/card-back.png');
+			event.target.setAttribute('src', './images/card-back.png');
 		}
 	}
 	checkIfMatch(userInput); // check for matching pair
@@ -290,12 +292,11 @@ function checkIfMatch(userInput) {
 		} else if (cardInPlay[0] !== cardInPlay[1]) {
 			// if pair is not match, remove the last clicked item from card-in-play array
 			cardInPlay.pop();
-			//deduct score point
 			score -= 1;
 			scoreBoard.innerText = 'SCORE: ' + score;
 			// if pair is not matched flip the last clicked card back down after 2 seconds
 			setTimeout(function () {
-				cardsBoard[userInput + 1].setAttribute('src', 'images/card-back.png');
+				cardsBoard[userInput + 1].setAttribute('src', './images/card-back.png');
 			}, 600);
 		}
 	}
@@ -364,7 +365,7 @@ function closeModal() {
 bigImage.addEventListener('click', imageModal);
 
 function imageModal(event) {
-	if (bigImage.getAttribute('src') === 'images/card-back.png') {
+	if (bigImage.getAttribute('src') === './images/card-back.png') {
 		return;
 	} else {
 		modalImageSource = bigImage.getAttribute('src');

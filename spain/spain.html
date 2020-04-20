@@ -8,21 +8,24 @@
 			rel="stylesheet"
 		/>
 		<title>Flash Card Game</title>
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="../style.css" />
 	</head>
+
 	<body>
 		<header class="header">
-			<div><h1 class="title">VIRTUAL TOUR FLASHCARDS</h1></div>
+			<div>
+				<h1 class="title">VIRTUAL TOUR FLASHCARDS</h1>
+			</div>
 		</header>
 		<nav class="navigation">
 			<ul class="menu">
-				<li><a href="index.html">VIET NAM</a></li>
-				<li><a href="./japan/japan.html">JAPAN</a></li>
-				<li><a href="./spain/spain.html">SPAIN</a></li>
-				<li><a href="./iceland/iceland.html">ICELAND</a></li>
+				<li><a href="../index.html">VIET NAM</a></li>
+				<li><a href="../japan/japan.html">JAPAN</a></li>
+				<li><a href="spain.html">SPAIN</a></li>
+				<li><a href="../iceland/iceland.html">ICELAND</a></li>
 			</ul>
 		</nav>
-		<div class="spacer"><h2>WELCOME TO VIET NAM</h2></div>
+		<div class="spacer"><h2>WELCOME TO SPAIN</h2></div>
 		<button class="play">Let's Play</button>
 		<button class="restart">Restart Game</button>
 		<button class="reset">Reset Score</button>
@@ -31,17 +34,18 @@
 			<div class="container">
 				<h3 class="score-board score">SCORE: 0000</h3>
 
-				<img id="big-image" src="images/card-back.png" alt="" />
+				<img id="big-image" src="./images/card-back.png" alt="" />
 				<h2 class="about-place">
 					GAME RULE
 					<p class="about">
-						In this Virtual Tour Flashcards game you will be tasked with
-						memorizing cards and their places. If you flip a matching pair you
-						will score 10 points. However, if you flip the wrong card, your
-						points will be deducted by 1. So, aim for a positive score board!
-						Beside getting points, you will also get to learn more about the
-						place you are about to visit. Hint (reset score will reset current
-						score to 0)
+                        In this Virtual Tour Flashcards game you will be tasked with
+                        memorizing cards and their places. If you flip a matching pair you
+                        will score 10 points. However, if you flip the wrong card, your
+                        points will be deducted by 1. So, aim for a positive score board!
+                        Beside getting points, you will also get to learn more about the
+                        place you are about to visit. Hint (reset score will reset current
+                        score to 0)
+                        </p>
 					</p>
 				</h2>
 				<input
@@ -65,10 +69,10 @@
 						Where do you want to go next?
 					</p>
 					<ul class="modal-list">
-						<li><a class="next-place" href="./japan/japan.html">JAPAN</a></li>
-						<li><a class="next-place" href="./spain/spain.html">SPAIN</a></li>
+						<li><a class="next-place" href="../index.html">VIET NAM</a></li>
+						<li><a class="next-place" href="../japan/japan.html">JAPAN</a></li>
 						<li>
-							<a class="next-place" href="./iceland/iceland.html">ICELAND</a>
+							<a class="next-place" href="../iceland/iceland.html">ICELAND</a>
 						</li>
 					</ul>
 					<div id="modal-footer">
@@ -81,6 +85,6 @@
 			<button class="add">EXPLORE MORE PLACES</button>
 		</main>
 		<footer></footer>
-		<script src="script.js"></script>
+		<script src="spain-script.js"></script>
 	</body>
 </html>

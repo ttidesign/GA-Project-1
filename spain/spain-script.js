@@ -1,139 +1,124 @@
-//mvp
-//game rules
-//show image of cards
-//users press play then cards flip down, 5 second timer/delay
-//users click then card flip up, check for match, if there's a match add to score board, max point each game =100
-//if all cards flipped game end
-//add restart game button add reset score board
-
-//silver goal
-//card flip back down if pair is not match
-//if pair is match, keep them up, if pair is not match deduct 5 point,
-
-//gold  goal
-//add more cards, shuffle while play, search feature view bigger image
-
 //create variable that contains all cards
 const deck = [
 	{
-		name: 'Ban Gioc',
-		image: 'images/ban-gioc.png',
+		name: 'Sagrada Familia',
+		image: './images/Sagrada-Familia.png',
 		about:
-			'Ban Gioc waterfall is a collective name for two waterfalls that straddle the international border between China and Vietnam',
+			'The Basílica de la Sagrada Família, also known as the Sagrada Família, is a large unfinished Roman Catholic minor basilica in Barcelona, Catalonia, Spain (Click picture to read more)',
 	},
 	{
-		name: 'Da Lat',
-		image: 'images/da-lat.png',
+		name: 'Camp Nou',
+		image: './images/Camp-Nou.png',
 		about:
-			'Located in the south of Vietnam is charming Da Lat which is known as a top destination for domestic honeymooners',
+			"Camp Nou has been the home stadium of FC Barcelona since its completion in 1957, and it is located in Carrer d' Arístides Maillol (Click picture to read more)",
 	},
 	{
-		name: 'Da Nang',
-		image: 'images/da-nang.png',
+		name: 'Gothic Quarter',
+		image: './images/Gothic-Quarter.png',
 		about:
-			'The best attractions in Da Nang are a good mix of centuries-old pagodas, French colonial buildings, as well as tranquil beaches with clear blue waters and verdant park',
+			'The charming Gothic Quarter, or Barri Gòtic, has narrow medieval streets filled with trendy bars, clubs and Catalan restaurants (Click picture to read more)',
 	},
 	{
-		name: 'Ha Long Bay',
-		image: 'images/ha-long-bay.png',
+		name: 'Casa Mila',
+		image: './images/Casa-Mila.png',
 		about:
-			'Ha Long Bay is known for its emerald waters and thousands of towering lime stone topped by rainforests',
+			'Also known as La Pedrera, as the front of the building looks a bit like the face of a quarry, Casa Milà was completed in 1912 and is another emblematic Gaudí building (Click picture to read more)',
 	},
 	{
-		name: 'Hoi An',
-		image: 'images/hoi-an.png',
+		name: 'St Josep',
+		image: './images/Stjosep.png',
 		about:
-			"Hoi An is a city on Vietnam's central coast known for its well-preserved Ancient Town, cut through with canals",
+			'The Mercat de Sant Josep de la Boqueria, often simply referred to as La Boqueria, is a large public market in the Ciudad Vieja district of Barcelona, Catalonia, Spain (Click picture to read more)',
 	},
 	{
-		name: 'Hue',
-		image: 'images/hue.png',
+		name: 'Royal Palace',
+		image: './images/Palacio-Real-Madrid.png',
 		about:
-			'Hue is one of the most charming towns in Vietnam and is located on the banks of the beautifully name Perfume River',
+			'The Royal Palace of Madrid  is the official residence of the Spanish royal family at the city of Madrid, although now only used for state ceremonies (Click picture to read more)',
 	},
 	{
-		name: 'Nha Trang',
-		image: 'images/nha-trang.png',
+		name: 'Park Guell',
+		image: './images/Park-Guell.png',
 		about:
-			'Nha Trang is a coastal resort city in southern Vietnam known for its beaches, diving sites and offshore islands',
+			'The Park Güell is a public park system composed of gardens and architectural elements located on Carmel Hill, in Barcelona, Catalonia, Spain (Click picture to read more)',
 	},
 	{
-		name: 'Phu Quoc',
-		image: 'images/phu-quoc.png',
+		name: 'Temple Debod',
+		image: './images/Temple-Debod.png',
 		about:
-			"Phu Quoc is an island off the coast of Cambodia in the Guff of Thailand. It's known for white-sand beaches and resorts, most of which are along the palm-lined southwest coast",
+			'Built in the 2nd Century BC, the temple was given to Spain in 1968 by the Egyptian government for Spain’s help in relocating the Abu Simbel temple before the construction of the Aswan dam (Click picture to read more)',
 	},
 	{
-		name: 'Saigon',
-		image: 'images/saigon.png',
+		name: 'Las Ramblas',
+		image: './images/Las-Ramblas.png',
 		about:
-			'Saigon is a city in south Vietnam famous for its French colonial landmarks including Notre-Dame Cathedral, made of materials imported from France.',
+			'La Rambla may be a Barcelona cliché—but it is one of those classic experiences that no visitor should miss. Enjoy the living statues. Drop them a coin, and they will usually do a trick (Click picture to read more)',
 	},
 	{
-		name: 'Sa Pa',
-		image: 'images/sapa.png',
+		name: 'Buen Retiro Park ',
+		image: './images/Parque-Del-Retiro.png',
 		about:
-			'Sa Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+			'The Buen Retiro Park (Parque del Retiro) is an oasis of peace in the heart of Madrid. Just beyond the busy streets, this lush 120-hectare park offers an escape from the hustle and bustle of the city (Click picture to read more)',
 	},
 	{
-		name: 'Ban Gioc',
-		image: 'images/ban-gioc.png',
+		name: 'Sagrada Familia',
+		image: './images/Sagrada-Familia.png',
 		about:
-			'Ban Gioc waterfall is a collective name for two waterfalls that straddle the international border between China and Vietnam',
+			'The Basílica de la Sagrada Família, also known as the Sagrada Família, is a large unfinished Roman Catholic minor basilica in Barcelona, Catalonia, Spain (Click picture to read more)',
 	},
 	{
-		name: 'Da Lat',
-		image: 'images/da-lat.png',
+		name: 'Camp Nou',
+		image: './images/Camp-Nou.png',
 		about:
-			'Located in the south of Vietnam is charming Da Lat which is known as a top destination for domestic honeymooners',
+			"Camp Nou has been the home stadium of FC Barcelona since its completion in 1957, and it is located in Carrer d' Arístides Maillol (Click picture to read more)",
 	},
 	{
-		name: 'Da Nang',
-		image: 'images/da-nang.png',
+		name: 'Gothic Quarter',
+		image: './images/Gothic-Quarter.png',
 		about:
-			'The best attractions in Da Nang are a good mix of centuries-old pagodas, French colonial buildings, as well as tranquil beaches with clear blue waters and verdant park',
+			'The charming Gothic Quarter, or Barri Gòtic, has narrow medieval streets filled with trendy bars, clubs and Catalan restaurants (Click picture to read more)',
 	},
 	{
-		name: 'Ha Long Bay',
-		image: 'images/ha-long-bay.png',
+		name: 'Casa Mila',
+		image: './images/Casa-Mila.png',
 		about:
-			'Ha Long Bay is known for its emerald waters and thousands of towering lime stone topped by rainforests',
+			'Also known as La Pedrera, as the front of the building looks a bit like the face of a quarry, Casa Milà was completed in 1912 and is another emblematic Gaudí building (Click picture to read more)',
 	},
 	{
-		name: 'Hoi An',
-		image: 'images/hoi-an.png',
+		name: 'St Josep',
+		image: './images/Stjosep.png',
 		about:
-			"Hoi An is a city on Vietnam's central coast known for its well-preserved Ancient Town, cut through with canals",
+			'The Mercat de Sant Josep de la Boqueria, often simply referred to as La Boqueria, is a large public market in the Ciudad Vieja district of Barcelona, Catalonia, Spain (Click picture to read more)',
 	},
 	{
-		name: 'Hue',
-		image: 'images/hue.png',
+		name: 'Royal Palace',
+		image: './images/Palacio-Real-Madrid.png',
 		about:
-			'Hue is one of the most charming towns in Vietnam and is located on the banks of the beautifully name Perfume River',
+			'The Royal Palace of Madrid  is the official residence of the Spanish royal family at the city of Madrid, although now only used for state ceremonies (Click picture to read more)',
 	},
 	{
-		name: 'Nha Trang',
-		image: 'images/nha-trang.png',
+		name: 'Park Guell',
+		image: './images/Park-Guell.png',
 		about:
-			'Nha Trang is a coastal resort city in southern Vietnam known for its beaches, diving sites and offshore islands',
+			'The Park Güell is a public park system composed of gardens and architectural elements located on Carmel Hill, in Barcelona, Catalonia, Spain (Click picture to read more)',
 	},
 	{
-		name: 'Phu Quoc',
-		image: 'images/phu-quoc.png',
+		name: 'Temple Debod',
+		image: './images/Temple-Debod.png',
 		about:
-			"Phu Quoc is an island off the coast of Cambodia in the Guff of Thailand. It's known for white-sand beaches and resorts, most of which are along the palm-lined southwest coast",
+			'Built in the 2nd Century BC, the temple was given to Spain in 1968 by the Egyptian government for Spain’s help in relocating the Abu Simbel temple before the construction of the Aswan dam (Click picture to read more)',
 	},
 	{
-		name: 'Saigon',
-		image: 'images/saigon.png',
+		name: 'Las Ramblas',
+		image: './images/Las-Ramblas.png',
 		about:
-			'Saigon is a city in south Vietnam famous for its French colonial landmarks including Notre-Dame Cathedral, made of materials imported from France.',
+			'La Rambla may be a Barcelona cliché—but it is one of those classic experiences that no visitor should miss. Enjoy the living statues. Drop them a coin, and they will usually do a trick (Click picture to read more)',
 	},
 	{
-		name: 'Sa Pa',
-		image: 'images/sapa.png',
+		name: 'Buen Retiro Park ',
+		image: './images/Parque-Del-Retiro.png',
 		about:
-			'Sa Pa overlooked the terrace rice fields of the Muong Hoa Valley, and is near the 3143m-tall Phang Xi Pang peak',
+			'The Buen Retiro Park (Parque del Retiro) is an oasis of peace in the heart of Madrid. Just beyond the busy streets, this lush 120-hectare park offers an escape from the hustle and bustle of the city (Click picture to read more)',
 	},
 ];
 const extraDeck = [
@@ -236,7 +221,7 @@ function letsPlay() {
 		backCard.setAttribute('class', 'box');
 		backCard.setAttribute('data-number', i);
 		//console.log(backCard);
-		backCard.setAttribute('src', 'images/card-back.png');
+		backCard.setAttribute('src', './images/card-back.png');
 		gameBoard.appendChild(backCard);
 	}
 	shuffleDec();
@@ -263,12 +248,12 @@ function flipCard(event) {
 		//push card's image to card-in-play array to check matching pair
 		cardInPlay.push(currentCardName);
 		//if card is back then flip to front
-		if (currentCardImage === 'images/card-back.png') {
+		if (currentCardImage === './images/card-back.png') {
 			event.target.setAttribute('src', deck[userInput].image);
 			//myFavoriteCards.appendChild(addFavorite)
 			// if card is already flipped click again will flip it back again
 		} else {
-			event.target.setAttribute('src', 'images/card-back.png');
+			event.target.setAttribute('src', './images/card-back.png');
 		}
 	}
 	checkIfMatch(userInput); // check for matching pair
@@ -290,12 +275,11 @@ function checkIfMatch(userInput) {
 		} else if (cardInPlay[0] !== cardInPlay[1]) {
 			// if pair is not match, remove the last clicked item from card-in-play array
 			cardInPlay.pop();
-			//deduct score point
 			score -= 1;
 			scoreBoard.innerText = 'SCORE: ' + score;
 			// if pair is not matched flip the last clicked card back down after 2 seconds
 			setTimeout(function () {
-				cardsBoard[userInput + 1].setAttribute('src', 'images/card-back.png');
+				cardsBoard[userInput + 1].setAttribute('src', './images/card-back.png');
 			}, 600);
 		}
 	}
@@ -364,7 +348,7 @@ function closeModal() {
 bigImage.addEventListener('click', imageModal);
 
 function imageModal(event) {
-	if (bigImage.getAttribute('src') === 'images/card-back.png') {
+	if (bigImage.getAttribute('src') === './images/card-back.png') {
 		return;
 	} else {
 		modalImageSource = bigImage.getAttribute('src');
