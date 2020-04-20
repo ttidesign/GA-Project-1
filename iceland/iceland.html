@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Flash Card Game</title>
+		<link rel="stylesheet" href="../style.css" />
+	</head>
+
+	<body>
+		<header class="header">
+			<div>
+				<h1 class="title">VIRTUAL TOUR FLASHCARDS</h1>
+			</div>
+		</header>
+		<nav class="navigation">
+			<ul class="menu">
+				<li><a href="../index.html">VIET NAM</a></li>
+				<li><a href="../japan/japan.html">JAPAN</a></li>
+				<li><a href="../spain/spain.html">SPAIN</a></li>
+				<li><a href="iceland.html">ICELAND</a></li>
+			</ul>
+		</nav>
+		<div class="spacer"><h2>WELCOME TO ICELAND</h2></div>
+		<button class="play">Let's Play</button>
+		<button class="restart">Restart Game</button>
+		<button class="reset">Reset Score</button>
+
+		<main>
+			<div class="container">
+				<h3 class="score-board score">SCORE: 0000</h3>
+
+				<img id="big-image" src="./images/card-back.png" alt="" />
+				<h2 class="about-place">
+					GAME RULE
+					<p class="about">
+						In this Virtual Tour Flashcards game you will be tasked with
+						memorizing cards and their places. If you flip a matching pair, you
+						will score 10 points! Beside getting points, you will also get to
+						learn more about the place you are about to visit.
+					</p>
+				</h2>
+				<input
+					type="text"
+					class="search-box"
+					placeholder="Search (case sensitive)"
+					value=""
+				/>
+				<button class="search-button">SEARCH</button>
+			</div>
+			<div id="picture-modal">
+				<!-- <img id="modal-image" src="images/card-back.png" alt=""> -->
+				<div id="modal-footer">
+					<button class="return-button" id="return" href="#">Close</button>
+				</div>
+			</div>
+			<div class="wrapper">
+				<div id="modal">
+					<h1>Congratulation! You Win</h1>
+					<p>
+						You have successfully flipped all the cards!
+					</p>
+					<div id="modal-footer">
+						<button class="modal-buttons" id="close" href="#">Close</button>
+					</div>
+				</div>
+				<div class="game-board"></div>
+			</div>
+			<div></div>
+			<button class="add">EXPLORE MORE PLACES</button>
+		</main>
+		<footer></footer>
+		<script src="iceland-script.js"></script>
+	</body>
+</html>
