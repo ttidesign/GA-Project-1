@@ -151,6 +151,18 @@ h3 {
 	border-radius: 5px;
 	display: none;
 }
+#modal p {
+	font-size: 20px;
+}
+ul.modal-list li {
+	display: inline;
+}
+.next-place {
+	font-size: 18px;
+	padding: 10px;
+	color: #dbe9ee;
+	text-decoration: none;
+}
 #picture-modal {
 	position: fixed;
 	left: 38%;
@@ -181,6 +193,7 @@ h3 {
 	width: 680px;
 	font-size: 17px;
 	padding-top: 10px;
+	line-height: 1.6;
 }
 
 .search-box {

@@ -39,9 +39,13 @@
 					GAME RULE
 					<p class="about">
 						In this Virtual Tour Flashcards game you will be tasked with
-						memorizing cards and their places. If you flip a matching pair, you
-						will score 10 points! Beside getting points, you will also get to
-						learn more about the place you are about to visit.
+						memorizing cards and their places. If you flip a matching pair you
+						will score 10 points. However, if you flip the wrong card, your
+						points will be deducted by 1. So, aim for a positive score board!
+						Beside getting points, you will also get to learn more about the
+						place you are about to visit. Hint (reset score will reset current
+						score to 0)
+						</p>
 					</p>
 				</h2>
 				<input
@@ -53,7 +57,6 @@
 				<button class="search-button">SEARCH</button>
 			</div>
 			<div id="picture-modal">
-				<!-- <img id="modal-image" src="images/card-back.png" alt=""> -->
 				<div id="modal-footer">
 					<button class="return-button" id="return" href="#">Close</button>
 				</div>
@@ -62,8 +65,16 @@
 				<div id="modal">
 					<h1>Congratulation! You Win</h1>
 					<p>
-						You have successfully flipped all the cards!
+						You have successfully flipped all the cards! <br />
+						Where do you want to go next?
 					</p>
+					<ul class="modal-list">
+						<li><a class="next-place" href="../index.html">VIET NAM</a></li>
+						<li><a class="next-place" href="../spain/spain.html">SPAIN</a></li>
+						<li>
+							<a class="next-place" href="../iceland/iceland.html">ICELAND</a>
+						</li>
+					</ul>
 					<div id="modal-footer">
 						<button class="modal-buttons" id="close" href="#">Close</button>
 					</div>

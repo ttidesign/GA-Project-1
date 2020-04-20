@@ -271,10 +271,12 @@ function checkIfMatch(userInput) {
 			matchedCard.push(cardInPlay[0], cardInPlay[1]);
 			cardInPlay = [];
 			score += 10;
-			scoreBoard.innerText = 'SCORE: 00' + score;
+			scoreBoard.innerText = 'SCORE: ' + score;
 		} else if (cardInPlay[0] !== cardInPlay[1]) {
 			// if pair is not match, remove the last clicked item from card-in-play array
 			cardInPlay.pop();
+			score -= 1;
+			scoreBoard.innerText = 'SCORE: ' + score;
 			// if pair is not matched flip the last clicked card back down after 2 seconds
 			setTimeout(function () {
 				cardsBoard[userInput + 1].setAttribute('src', './images/card-back.png');
