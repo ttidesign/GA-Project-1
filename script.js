@@ -167,7 +167,59 @@ const extraDeck = [
 
 //start game with board full of images of cards
 const gameBoard = document.querySelector('.game-board');
+//Let's-play button that flip down all cards
+const playBtn = document.querySelector('.play');
+//create variable to target all images in the game board
+const cardsBoard = document.getElementsByTagName('img');
+//create a variable to target the big image
+const bigImage = document.getElementById('big-image');
+//create variable to target the h2 inside paragraph
+const nameOfPlace = document.querySelector('.about-place');
+//create a variable to target the About paragraph
+const placeAbout = document.querySelector('.about');
+//create two arrays for holding temp values for checking match
+//create variable with empty array for checking cards in play
+let cardInPlay = [];
+//create variable with empty array for checking winning game
+let matchedCard = [];
+//create variable to target score board and a variable to hold score
+const scoreBoard = document.querySelector('.score');
+//set initial score
+let score = 0;
+//create variable to target reset score button
+const resetBtn = document.querySelector('.reset');
+//create variable to target the restart button
+const restartBtn = document.querySelector('.restart');
+//create variable to target the winning message
+const winningMessage = document.getElementById('modal');
+// create a variable to target the search button
+const searchBtn = document.querySelector('.search-button');
+// create variable to target the value input
+const addInput = document.querySelector('input');
+// create variable to target button that let users add more cards
+const addBtn = document.querySelector('.add');
+//create a counter variable for counting added card
+let addCard = 0;
+//creat a variable to target the modal close button
+let closeBtn = document.getElementById('close');
+// create a variable to target the modal that show image
+let modalImageView = document.getElementById('picture-modal');
+let modalImage = document.createElement('img');
+//create a variable to target the close button
+let returnBtn = document.getElementById('return');
 
+//event handler to target let's play button
+playBtn.addEventListener('click', letsPlay);
+//event handler to target individual card when card is clicked
+gameBoard.addEventListener('click', flipCard);
+//event handler to handle reset score function
+resetBtn.addEventListener('click', resetScore);
+//add event handler for the restart button
+restartBtn.addEventListener('click', restartGame);
+//add event handler for adding favorite button
+searchBtn.addEventListener('click', searchResult);
+//add event handler for handling adding more card function
+addBtn.addEventListener('click', addMoreCards);
 function gameStart() {
 	for (let i = 0; i < deck.length; i++) {
 		let cardFront = document.createElement('img');
@@ -178,11 +230,6 @@ function gameStart() {
 	}
 }
 gameStart();
-
-//Let's-play button that flip down all cards
-const playBtn = document.querySelector('.play');
-
-playBtn.addEventListener('click', letsPlay);
 
 function letsPlay() {
 	clearBoard();
@@ -205,17 +252,6 @@ function clearBoard() {
 		existingCards = gameBoard.firstElementChild;
 	}
 }
-
-//create variable to target all images in the game board
-const cardsBoard = document.getElementsByTagName('img');
-//create a variable to target the big image
-const bigImage = document.getElementById('big-image');
-//create variable to target the h2 inside paragraph
-const nameOfPlace = document.querySelector('.about-place');
-//create a variable to target the About paragraph
-const placeAbout = document.querySelector('.about');
-//event handler to target individual card when card is clicked
-gameBoard.addEventListener('click', flipCard);
 
 function flipCard(event) {
 	let userInput = parseInt(event.target.dataset.number);
@@ -243,14 +279,8 @@ function flipCard(event) {
 
 //setTimeout(letsPlay, 4000);
 
-//create two arrays for holding temp values for checking match
-let cardInPlay = [];
-let matchedCard = [];
-
 //function to check if the pair is matched
-//create variable to target score board and a variable to hold score
-const scoreBoard = document.querySelector('.score');
-let score = 0;
+
 function checkIfMatch(userInput) {
 	if (cardInPlay.length === 2) {
 		if (cardInPlay[0] === cardInPlay[1]) {
@@ -270,19 +300,9 @@ function checkIfMatch(userInput) {
 	}
 }
 
-//reset score
-let resetBtn = document.querySelector('.reset');
-resetBtn.addEventListener('click', resetScore);
-
 function resetScore() {
 	scoreBoard.innerText = 'SCORE: 0000';
 }
-
-//create variable to target the restart button
-const restartBtn = document.querySelector('.restart');
-
-//add event handler for the restart button
-restartBtn.addEventListener('click', restartGame);
 
 //reload page to restart game
 function restartGame() {
@@ -290,7 +310,7 @@ function restartGame() {
 }
 
 //add function to check if the game is over
-let winningMessage = document.getElementById('modal');
+
 function checkGame() {
 	if (matchedCard.length === 20) {
 		winningMessage.style.display = 'block';
@@ -309,12 +329,6 @@ function shuffleDec() {
 	return deck;
 }
 
-// create a variable to target the search button
-const searchBtn = document.querySelector('.search-button');
-// create variable to target the value input
-let addInput = document.querySelector('input');
-//add event handler for adding favorite button
-searchBtn.addEventListener('click', searchResult);
 //add function to handle event
 function searchResult() {
 	let inputValue = addInput.value;
@@ -327,10 +341,6 @@ function searchResult() {
 		}
 }
 
-// let users add more cards
-const addBtn = document.querySelector('.add');
-addBtn.addEventListener('click', addMoreCards);
-let addCard = 0;
 function addMoreCards() {
 	let newCard = document.createElement('img');
 	newCard.setAttribute('src', extraDeck[addCard].image);
@@ -344,19 +354,14 @@ function addMoreCards() {
 	return addCard;
 }
 
-//creat a variable to target the modal close button
-let closeBtn = document.getElementById('close');
 closeBtn.addEventListener('click', closeModal);
 function closeModal() {
 	winningMessage.style.display = 'none';
 }
 
-// create a variable to target the modal that show image
-let modalImageView = document.getElementById('picture-modal');
 //add event listen and function to handle modal view
 bigImage.addEventListener('click', imageModal);
 
-let modalImage = document.createElement('img');
 function imageModal(event) {
 	if (bigImage.getAttribute('src') === 'images/card-back.png') {
 		return;
@@ -370,8 +375,6 @@ function imageModal(event) {
 	}
 }
 
-//create a variable to target the close button
-let returnBtn = document.getElementById('return');
 returnBtn.addEventListener('click', closeModalImage);
 
 function closeModalImage() {
