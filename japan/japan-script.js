@@ -261,23 +261,23 @@ function flipCard(event) {
 		nameOfPlace.appendChild(placeAbout);
 		bigImage.setAttribute('src', deck[userInput].image);
 		let currentCardImage = event.target.getAttribute('src');
-		let currentCardName = deck[userInput].name;
-		//push card's image to card-in-play array to check matching pair
-		cardInPlay.push(currentCardName);
 		//if card is back then flip to front
 		if (currentCardImage === './images/card-back.png') {
 			event.target.setAttribute('src', deck[userInput].image);
+			let currentCardName = deck[userInput].name;
+			//push card's image to card-in-play array to check matching pair
+			cardInPlay.push(currentCardName);
 			//myFavoriteCards.appendChild(addFavorite)
 			// if card is already flipped click again will flip it back again
 		} else {
-			event.target.setAttribute('src', './images/card-back.png');
+			return;
 		}
 	}
 	checkIfMatch(userInput); // check for matching pair
 	checkGame(); // check if game is active
 }
 
-//setTimeout(letsPlay, 4000);
+setTimeout(letsPlay, 180000);
 
 //function to check if the pair is matched
 
