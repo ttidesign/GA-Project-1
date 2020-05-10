@@ -134,7 +134,7 @@ h3 {
 }
 .box:hover {
 	opacity: 1;
-	transform: scale(1.03);
+	transform: scale(1.02);
 	border: 2px solid rgb(184, 244, 245);
 }
 

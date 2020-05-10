@@ -123,34 +123,34 @@ const deck = [
 ];
 const extraDeck = [
 	{
-		name: 'Nam Du',
-		image: 'images/nam-du.png',
+		name: 'Alicante',
+		image: './images/Alicante.png',
 		about:
-			'The immense blue sea and sky, imposing mountains erupting amidst the ocean, endless evergreen primeval forests, long stunning beaches and spendid rock cliffs of Nam Du Archipelago have seen it compared the "New Wonder of The World',
+			'Sun, sea and a soaring rocky peak make Alicante a prime coastal destination in Spain. But while many foreign tourists fly into the city’s airport then leave for resorts further along the coast, Alicante is worth exploring in itself. The port city has a buzzing city beach that has the dramatic Mount Benacantil as a backdrop, a huge rocky peak whose summit is home to Santa Bárbara Castle. Stroll by the city’s marina on an evening then do some tapas bar hopping in the old town.',
 	},
 	{
-		name: 'Ling-Ung',
-		image: 'images/ling-ung.png',
+		name: 'Granada',
+		image: './images/Granada.png',
 		about:
-			'Linh Ung pagoda is considered as a work stamped development footprint of Buddhism in Vietnam in the 21st century and a meeting place of heaven and earth',
+			'Granada is like a Disney fairytale come to life: it has the stunning ancient fortress, the snowcapped peaks and winding cobbled streets. The Alhambra is one of Spain’s most famous attractions, and for good reason. The Moorish palace sits high over the city and contains some of the best-preserved Islamic art and architecture in the world.',
 	},
 	{
-		name: 'Ha Noi Old Quarter',
-		image: 'images/ha-noi.png',
+		name: 'Valencia',
+		image: './images/Valencia.png',
 		about:
-			'The Old Quarter is the name commonly given to the historical civic urban core of Hanoi, this quarter used to be the residential, manufacturing and commercial center where each street was specialized in one specific type of manufacturing or commerce',
+			'The home of paella is a great place to sample what is perhaps Spain’s most famous dish. Head to a beachside restaurant and enjoy the rice dish for lunch (Spaniards never tend to eat the heavy dish for dinner) washed down with some Agua de Valencia, a potent local cava cocktail. Explore Valencia’s beautiful old town and don’t miss the incredible, spaceship-like Valencia City of Arts and Sciences, a futuristic complex in the city’s former river bed that holds an aquarium, IMAX cinema, opera house and science museum.',
 	},
 	{
-		name: 'Hai Van',
-		image: 'images/hai-van.png',
+		name: 'San Sebastian',
+		image: './images/San Sebastian.png',
 		about:
-			"Hai Van Pass is a 20-kilometer strip of road that joins the the city of Da Nang and Lang Co in Hue Province. At 500 meter above sea level, it's the highest pass in the whole of Vietnam",
+			'This elegant city on the Basque Country coast is a must for foodies; the pintxo – a Basque version of tapas that usually includes delicious morsels balanced on crusty bread – is the city’s gastronomic calling card and the bars of the Old Town lay out their pintxos on the bar tops so you can see everything on offer. The city’s Concha Beach is a beautiful, shell-shaped cove popular with families, while the nearby Zurriola beach is great for surfing.',
 	},
 ];
 
-//start game with board full of images of cards
+//create variable to target game board
 const gameBoard = document.querySelector('.game-board');
-//Let's-play button that flip down all cards
+//create variable to targe play button
 const playBtn = document.querySelector('.play');
 //create variable to target all images in the game board
 const cardsBoard = document.getElementsByTagName('img');
@@ -203,6 +203,15 @@ restartBtn.addEventListener('click', restartGame);
 searchBtn.addEventListener('click', searchResult);
 //add event handler for handling adding more card function
 addBtn.addEventListener('click', addMoreCards);
+//add event handler to handle the close modal button
+closeBtn.addEventListener('click', closeModal);
+//add event listen and function to handle modal view
+bigImage.addEventListener('click', imageModal);
+//add event handler to handle close modal image button
+returnBtn.addEventListener('click', closeModalImage);
+
+//Game function
+//start game with board full of images of cards
 function gameStart() {
 	for (let i = 0; i < deck.length; i++) {
 		let cardFront = document.createElement('img');
@@ -250,8 +259,6 @@ function flipCard(event) {
 			let currentCardName = deck[userInput].name;
 			//push card's image to card-in-play array to check matching pair
 			cardInPlay.push(currentCardName);
-			//myFavoriteCards.appendChild(addFavorite)
-			// if card is already flipped click again will flip it back again
 		} else {
 			return;
 		}
@@ -260,6 +267,7 @@ function flipCard(event) {
 	checkGame(); // check if game is active
 }
 
+//game auto start after 3 minutes
 setTimeout(letsPlay, 180000);
 
 //function to check if the pair is matched
@@ -327,27 +335,27 @@ function searchResult() {
 }
 
 function addMoreCards() {
-	let newCard = document.createElement('img');
-	newCard.setAttribute('src', extraDeck[addCard].image);
-	newCard.classList.add('box');
-	gameBoard.appendChild(newCard);
-	nameOfPlace.innerText = extraDeck[addCard].name;
-	placeAbout.innerText = extraDeck[addCard].about;
-	nameOfPlace.appendChild(placeAbout);
-	bigImage.setAttribute('src', extraDeck[addCard].image);
-	addCard++;
-	return addCard;
+	if (addCard < extraDeck.length) {
+		let newCard = document.createElement('img');
+		newCard.setAttribute('src', extraDeck[addCard].image);
+		newCard.classList.add('box');
+		gameBoard.appendChild(newCard);
+		nameOfPlace.innerText = extraDeck[addCard].name;
+		placeAbout.innerText = extraDeck[addCard].about;
+		nameOfPlace.appendChild(placeAbout);
+		bigImage.setAttribute('src', extraDeck[addCard].image);
+		addCard++;
+		return addCard;
+	} else if (addCard > extraDeck.length) {
+		return;
+	}
 }
 
-closeBtn.addEventListener('click', closeModal);
 function closeModal() {
 	winningMessage.style.display = 'none';
 }
 
-//add event listen and function to handle modal view
-bigImage.addEventListener('click', imageModal);
-
-function imageModal(event) {
+function imageModal() {
 	if (bigImage.getAttribute('src') === './images/card-back.png') {
 		return;
 	} else {
@@ -359,8 +367,6 @@ function imageModal(event) {
 		modalImageView.style.display = 'block';
 	}
 }
-
-returnBtn.addEventListener('click', closeModalImage);
 
 function closeModalImage() {
 	modalImageView.style.display = 'none';

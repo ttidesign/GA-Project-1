@@ -124,34 +124,34 @@ const deck = [
 ];
 const extraDeck = [
 	{
-		name: 'Nam Du',
-		image: 'images/nam-du.png',
+		name: 'Myrdalsjokull',
+		image: './images/Myrdalsjokull.png',
 		about:
-			'The immense blue sea and sky, imposing mountains erupting amidst the ocean, endless evergreen primeval forests, long stunning beaches and spendid rock cliffs of Nam Du Archipelago have seen it compared the "New Wonder of The World',
+			'Caked in ice all year round, the soaring ridges of the mighty Katla caldera play host to Iceland’s wild and arctic Myrdalsjokull Glacier Park. This snow-packed field encompasses hundreds of square kilometers and represents the fourth-largest of its kind in the country.',
 	},
 	{
-		name: 'Ling-Ung',
-		image: 'images/ling-ung.png',
+		name: 'Asbyrgi',
+		image: './images/Asbyrgi.png',
 		about:
-			'Linh Ung pagoda is considered as a work stamped development footprint of Buddhism in Vietnam in the 21st century and a meeting place of heaven and earth',
+			'Carving its way out of the rocky inland of north-east Iceland, the chiselled gorges and ridges of Asbyrgi rarely fail to draw a gasp. In all, the sheer-sided edges of the canyon run for more than three kilometers and come in at a whopping 100 meters in height at some points.',
 	},
 	{
-		name: 'Ha Noi Old Quarter',
-		image: 'images/ha-noi.png',
+		name: 'Gullfoss',
+		image: './images/Gullfoss.png',
 		about:
-			'The Old Quarter is the name commonly given to the historical civic urban core of Hanoi, this quarter used to be the residential, manufacturing and commercial center where each street was specialized in one specific type of manufacturing or commerce',
+			'Visitors will find the majestic Gullfoss Waterfall roaring over the escarpments and bluffs of south-western Iceland. It’s famed as one of the most dramatic cataracts in the world, and cascades over a series of stepped rocks and terraces before plunging over the 32-meter high crevice that gives the fall its distinct appearance of disappearing into the Icelandic subterrane.',
 	},
 	{
-		name: 'Hai Van',
-		image: 'images/hai-van.png',
+		name: 'Landmannalaugar',
+		image: './images/Landmannalaugar.png',
 		about:
-			"Hai Van Pass is a 20-kilometer strip of road that joins the the city of Da Nang and Lang Co in Hue Province. At 500 meter above sea level, it's the highest pass in the whole of Vietnam",
+			'A deep-cut valley set in the very midst of south-western Iceland’s famous Fjallabak Nature Reserve, the Landmannalaugar is a hidden gem of a destination that comes complete with everything from bubbling volcanic hot springs to ochre-coloured mountain ridges',
 	},
 ];
 
-//start game with board full of images of cards
+//create variable to target game board
 const gameBoard = document.querySelector('.game-board');
-//Let's-play button that flip down all cards
+//create variable to target play button
 const playBtn = document.querySelector('.play');
 //create variable to target all images in the game board
 const cardsBoard = document.getElementsByTagName('img');
@@ -204,6 +204,15 @@ restartBtn.addEventListener('click', restartGame);
 searchBtn.addEventListener('click', searchResult);
 //add event handler for handling adding more card function
 addBtn.addEventListener('click', addMoreCards);
+//add event handler to handle close modal button
+closeBtn.addEventListener('click', closeModal);
+//add event handler to handle modal image view
+bigImage.addEventListener('click', imageModal);
+//add event handler to handle close modal image button
+returnBtn.addEventListener('click', closeModalImage);
+
+//Game function
+//start game with board full of images of cards
 function gameStart() {
 	for (let i = 0; i < deck.length; i++) {
 		let cardFront = document.createElement('img');
@@ -251,8 +260,6 @@ function flipCard(event) {
 			let currentCardName = deck[userInput].name;
 			//push card's image to card-in-play array to check matching pair
 			cardInPlay.push(currentCardName);
-			//myFavoriteCards.appendChild(addFavorite)
-			// if card is already flipped click again will flip it back again
 		} else {
 			return;
 		}
@@ -328,27 +335,27 @@ function searchResult() {
 }
 
 function addMoreCards() {
-	let newCard = document.createElement('img');
-	newCard.setAttribute('src', extraDeck[addCard].image);
-	newCard.classList.add('box');
-	gameBoard.appendChild(newCard);
-	nameOfPlace.innerText = extraDeck[addCard].name;
-	placeAbout.innerText = extraDeck[addCard].about;
-	nameOfPlace.appendChild(placeAbout);
-	bigImage.setAttribute('src', extraDeck[addCard].image);
-	addCard++;
-	return addCard;
+	if (addCard < extraDeck.length) {
+		let newCard = document.createElement('img');
+		newCard.setAttribute('src', extraDeck[addCard].image);
+		newCard.classList.add('box');
+		gameBoard.appendChild(newCard);
+		nameOfPlace.innerText = extraDeck[addCard].name;
+		placeAbout.innerText = extraDeck[addCard].about;
+		nameOfPlace.appendChild(placeAbout);
+		bigImage.setAttribute('src', extraDeck[addCard].image);
+		addCard++;
+		return addCard;
+	} else if (addCard > extraDeck.length) {
+		return;
+	}
 }
 
-closeBtn.addEventListener('click', closeModal);
 function closeModal() {
 	winningMessage.style.display = 'none';
 }
 
-//add event listen and function to handle modal view
-bigImage.addEventListener('click', imageModal);
-
-function imageModal(event) {
+function imageModal() {
 	if (bigImage.getAttribute('src') === './images/card-back.png') {
 		return;
 	} else {
@@ -360,8 +367,6 @@ function imageModal(event) {
 		modalImageView.style.display = 'block';
 	}
 }
-
-returnBtn.addEventListener('click', closeModalImage);
 
 function closeModalImage() {
 	modalImageView.style.display = 'none';
