@@ -1,19 +1,3 @@
-//mvp
-//game rules
-//show image of cards
-//users press play then cards flip down, 5 second timer/delay
-//users click then card flip up, check for match, if there's a match add to score board, max point each game =100
-//if all cards flipped game end
-//add restart game button add reset score board
-
-//silver goal
-//card flip back down if pair is not match
-//if pair is match, keep them up, if pair is not match deduct 5 point,
-
-//gold  goal
-//add more cards, shuffle while play, search feature view bigger image
-
-//create variable that contains all cards
 const deck = [
 	{
 		name: 'Ban Gioc',
@@ -163,9 +147,8 @@ const extraDeck = [
 	},
 ];
 
-//start game with board full of images of cards
 const gameBoard = document.querySelector('.game-board');
-//Let's-play button that flip down all cards
+//create variable to target play button
 const playBtn = document.querySelector('.play');
 //create variable to target all images in the game board
 const cardsBoard = document.getElementsByTagName('img');
@@ -218,6 +201,15 @@ restartBtn.addEventListener('click', restartGame);
 searchBtn.addEventListener('click', searchResult);
 //add event handler for handling adding more card function
 addBtn.addEventListener('click', addMoreCards);
+//add event handler to handle winning game message
+closeBtn.addEventListener('click', closeModal);
+//add event handler to handle modal image
+bigImage.addEventListener('click', imageModal);
+//add event handler to handle close modal image
+returnBtn.addEventListener('click', closeModalImage);
+
+//Game function
+//start game with board full of images of cards
 function gameStart() {
 	for (let i = 0; i < deck.length; i++) {
 		let cardFront = document.createElement('img');
@@ -229,13 +221,13 @@ function gameStart() {
 }
 gameStart();
 
+//start game function
 function letsPlay() {
 	clearBoard();
 	for (let i = 0; i < deck.length; i++) {
 		let backCard = document.createElement('img');
 		backCard.setAttribute('class', 'box');
 		backCard.setAttribute('data-number', i);
-		//console.log(backCard);
 		backCard.setAttribute('src', 'images/card-back.png');
 		gameBoard.appendChild(backCard);
 	}
@@ -265,9 +257,7 @@ function flipCard(event) {
 			let currentCardName = deck[userInput].name;
 			//push card's image to card-in-play array to check matching pair
 			cardInPlay.push(currentCardName);
-			console.log(cardInPlay);
-			//myFavoriteCards.appendChild(addFavorite)
-			// if card is already flipped click again will flip it back again
+			//console.log(cardInPlay);
 		} else {
 			return;
 		}
@@ -275,7 +265,7 @@ function flipCard(event) {
 	checkIfMatch(userInput); // check for matching pair
 	checkGame(); // check if game is active
 }
-
+//game auto start after 3 minutes
 setTimeout(letsPlay, 180000);
 
 //function to check if the pair is matched
@@ -301,7 +291,7 @@ function checkIfMatch(userInput) {
 		}
 	}
 }
-
+//reset score function
 function resetScore() {
 	scoreBoard.innerText = 'SCORE: 0000';
 }
@@ -331,7 +321,7 @@ function shuffleDec() {
 	return deck;
 }
 
-//add function to handle event
+//add function to handle search event
 function searchResult() {
 	let inputValue = addInput.value;
 	for (let i = 0; i < deck.length; i++)
@@ -343,28 +333,26 @@ function searchResult() {
 		}
 }
 
+//function to let users view more cards
 function addMoreCards() {
-	let newCard = document.createElement('img');
-	newCard.setAttribute('src', extraDeck[addCard].image);
-	newCard.classList.add('box');
-	gameBoard.appendChild(newCard);
-	nameOfPlace.innerText = extraDeck[addCard].name;
-	placeAbout.innerText = extraDeck[addCard].about;
-	nameOfPlace.appendChild(placeAbout);
-	bigImage.setAttribute('src', extraDeck[addCard].image);
-	addCard++;
-	return addCard;
+	if (addCard < extraDeck.length) {
+		let newCard = document.createElement('img');
+		newCard.setAttribute('src', extraDeck[addCard].image);
+		newCard.classList.add('box');
+		gameBoard.appendChild(newCard);
+		nameOfPlace.innerText = extraDeck[addCard].name;
+		placeAbout.innerText = extraDeck[addCard].about;
+		nameOfPlace.appendChild(placeAbout);
+		bigImage.setAttribute('src', extraDeck[addCard].image);
+		addCard++;
+		return addCard;
+	} else if (addCard > extraDeck.length) {
+		return;
+	}
 }
 
-closeBtn.addEventListener('click', closeModal);
-function closeModal() {
-	winningMessage.style.display = 'none';
-}
-
-//add event listen and function to handle modal view
-bigImage.addEventListener('click', imageModal);
-
-function imageModal(event) {
+//function to view bigger image and info
+function imageModal() {
 	if (bigImage.getAttribute('src') === 'images/card-back.png') {
 		return;
 	} else {
@@ -377,8 +365,12 @@ function imageModal(event) {
 	}
 }
 
-returnBtn.addEventListener('click', closeModalImage);
+//function to close winning modal message
+function closeModal() {
+	winningMessage.style.display = 'none';
+}
 
+//function to close modal image
 function closeModalImage() {
 	modalImageView.style.display = 'none';
 	modalImageView.removeChild(modalImage);

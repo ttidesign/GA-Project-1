@@ -1,21 +1,3 @@
-//console.log('hello world)
-
-//mvp
-//game rules
-//show image of cards
-//users press play then cards flip down, 5 second timer/delay
-//users click then card flip up, check for match, if there's a match add to score board, max point each game =100
-//if all cards flipped game end
-//add restart game button add reset score board
-
-//silver goal
-//card flip back down if pair is not match
-//if pair is match, keep them up, if pair is not match deduct 5 point,
-
-//gold  goal
-//add more cards, shuffle while play, search feature view bigger image
-
-//create variable that contains all cards
 const deck = [
 	{
 		name: 'Arashiyama',
@@ -140,34 +122,34 @@ const deck = [
 ];
 const extraDeck = [
 	{
-		name: 'Nam Du',
-		image: 'images/nam-du.png',
+		name: 'Okinawa',
+		image: './images/Okinawa.png',
 		about:
-			'The immense blue sea and sky, imposing mountains erupting amidst the ocean, endless evergreen primeval forests, long stunning beaches and spendid rock cliffs of Nam Du Archipelago have seen it compared the "New Wonder of The World',
+			'The Okinawa islands are located about two and a half hours from Tokyo by plane. While technically part of Japan, the isles may as well be another country! Historically, Okinawa was actually its own entity known as the Ryukyu kingdom. Because of this legacy, Okinawa has a very different history to the rest of Japan which is immediately apparent in the local cultural motifs.Today Okinawa is best known as a tropical retreat by many Japanese. In addition to lazily relaxing by the beach, there are a lot of other fun things to do',
 	},
 	{
-		name: 'Ling-Ung',
-		image: 'images/ling-ung.png',
+		name: 'Sapporo',
+		image: './images/Sapporo.png',
 		about:
-			'Linh Ung pagoda is considered as a work stamped development footprint of Buddhism in Vietnam in the 21st century and a meeting place of heaven and earth',
+			'Outdoor enthusiasts will find that Sapporo is a great base from which to head out and explore. Additionally, due to its location on Japan’s northernmost island, Sapporo is a great escape from the oppressive summer humidity. Good news for those feeling a little too hot.That said, the city is probably most famous for its annual snow festival. Every year artists fashion large snow sculptures with some measuring more than 25 meters wide and 15 meters high! It’s definitely worth a visit and if you’re in Japan during February you have snow excuse not to check it out!',
 	},
 	{
-		name: 'Ha Noi Old Quarter',
-		image: 'images/ha-noi.png',
+		name: 'Nagano',
+		image: './images/Nagano.png',
 		about:
-			'The Old Quarter is the name commonly given to the historical civic urban core of Hanoi, this quarter used to be the residential, manufacturing and commercial center where each street was specialized in one specific type of manufacturing or commerce',
+			'In addition to the beautiful scenery, the city of Nagano is home to a lot of hidden gems. From the 1998 winter Olympic facilities to a Ninja village for kids, there’s something for everyone here. Within the bounds of the prefecture you’ll also find the Shiga Kogen ski resort and the famous onsen-bathing snow monkeys of Jigokudani.Be sure to also consider visiting Matsumoto city. Matsumoto is also a great starting point for those looking to go experience the Tateyama Kurobe Alpine Route and its massive snow walls',
 	},
 	{
-		name: 'Hai Van',
-		image: 'images/hai-van.png',
+		name: 'Kyushu',
+		image: './images/Kyushu.png',
 		about:
-			"Hai Van Pass is a 20-kilometer strip of road that joins the the city of Da Nang and Lang Co in Hue Province. At 500 meter above sea level, it's the highest pass in the whole of Vietnam",
+			'Kyushu is the southernmost of Japan’s four major islands. The island is divided into seven prefectures, each with their own unique appeal. From the vibrant and energetic city of Fukuoka in the north, through the traditional ryokan and hot springs of Oita, past historic Kumamoto, all the way down to natural paradise Kagoshima in the south, this volcanic island really does have something for everyone',
 	},
 ];
 
-//start game with board full of images of cards
+//create variable to target the game board
 const gameBoard = document.querySelector('.game-board');
-//Let's-play button that flip down all cards
+//create variable to target the play button
 const playBtn = document.querySelector('.play');
 //create variable to target all images in the game board
 const cardsBoard = document.getElementsByTagName('img');
@@ -220,6 +202,15 @@ restartBtn.addEventListener('click', restartGame);
 searchBtn.addEventListener('click', searchResult);
 //add event handler for handling adding more card function
 addBtn.addEventListener('click', addMoreCards);
+//add event handler to handle closing winning game message
+closeBtn.addEventListener('click', closeModal);
+//add event handler to handle modal image
+bigImage.addEventListener('click', imageModal);
+// add event listener for closing modal image
+returnBtn.addEventListener('click', closeModalImage);
+
+//Game function
+//start game with board full of images of cards
 function gameStart() {
 	for (let i = 0; i < deck.length; i++) {
 		let cardFront = document.createElement('img');
@@ -267,8 +258,6 @@ function flipCard(event) {
 			let currentCardName = deck[userInput].name;
 			//push card's image to card-in-play array to check matching pair
 			cardInPlay.push(currentCardName);
-			//myFavoriteCards.appendChild(addFavorite)
-			// if card is already flipped click again will flip it back again
 		} else {
 			return;
 		}
@@ -276,7 +265,7 @@ function flipCard(event) {
 	checkIfMatch(userInput); // check for matching pair
 	checkGame(); // check if game is active
 }
-
+//game auto start after 3 minutes
 setTimeout(letsPlay, 180000);
 
 //function to check if the pair is matched
@@ -331,7 +320,7 @@ function shuffleDec() {
 	return deck;
 }
 
-//add function to handle event
+//add function to handle search event
 function searchResult() {
 	let inputValue = addInput.value;
 	for (let i = 0; i < deck.length; i++)
@@ -344,27 +333,23 @@ function searchResult() {
 }
 
 function addMoreCards() {
-	let newCard = document.createElement('img');
-	newCard.setAttribute('src', extraDeck[addCard].image);
-	newCard.classList.add('box');
-	gameBoard.appendChild(newCard);
-	nameOfPlace.innerText = extraDeck[addCard].name;
-	placeAbout.innerText = extraDeck[addCard].about;
-	nameOfPlace.appendChild(placeAbout);
-	bigImage.setAttribute('src', extraDeck[addCard].image);
-	addCard++;
-	return addCard;
+	if (addCard < extraDeck.length) {
+		let newCard = document.createElement('img');
+		newCard.setAttribute('src', extraDeck[addCard].image);
+		newCard.classList.add('box');
+		gameBoard.appendChild(newCard);
+		nameOfPlace.innerText = extraDeck[addCard].name;
+		placeAbout.innerText = extraDeck[addCard].about;
+		nameOfPlace.appendChild(placeAbout);
+		bigImage.setAttribute('src', extraDeck[addCard].image);
+		addCard++;
+		return addCard;
+	} else if (addCard > extraDeck.length) {
+		return;
+	}
 }
 
-closeBtn.addEventListener('click', closeModal);
-function closeModal() {
-	winningMessage.style.display = 'none';
-}
-
-//add event listen and function to handle modal view
-bigImage.addEventListener('click', imageModal);
-
-function imageModal(event) {
+function imageModal() {
 	if (bigImage.getAttribute('src') === './images/card-back.png') {
 		return;
 	} else {
@@ -377,7 +362,9 @@ function imageModal(event) {
 	}
 }
 
-returnBtn.addEventListener('click', closeModalImage);
+function closeModal() {
+	winningMessage.style.display = 'none';
+}
 
 function closeModalImage() {
 	modalImageView.style.display = 'none';
